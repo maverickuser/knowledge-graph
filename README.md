@@ -140,7 +140,7 @@ The hardening tests cover:
 
 The CD workflow expects these GitHub repository variables/secrets:
 
-- `secrets.AWS_ROLE_TO_ASSUME`: set this to the Terraform output `github_actions_role_arn`.
+- `secrets.AWS_ROLE_ARN`: set this to the Terraform output `github_actions_role_arn`.
 - `vars.AWS_REGION`: optional, defaults to `ap-south-1`.
 - `vars.TF_STATE_BUCKET`: optional remote Terraform state bucket, defaults to `knowledge-graph-terraform-state-bucket`.
 - `vars.TF_STATE_KEY`: optional remote Terraform state key, defaults to `knowledge-graph/terraform.tfstate`.
