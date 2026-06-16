@@ -7,17 +7,9 @@ from typing import Iterable
 
 from ..exceptions import ValidationError
 from .models import (
-    AssessmentItem,
-    Community,
-    CommunitySummary,
-    Concept,
-    DiagnosticRecord,
     GraphSeedBundle,
     GraphSnapshot,
-    Misconception,
     PrerequisiteEdge,
-    Skill,
-    SyllabusNode,
 )
 
 

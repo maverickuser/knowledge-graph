@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from ..domain.models import Community, CommunitySummary, Concept, GraphSnapshot
+from ..domain.models import Community, CommunitySummary, GraphSnapshot
 
 
 @dataclass(frozen=True, slots=True)

@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import re
 
-from ..domain.ids import normalize_text, stable_id
+from ..domain.ids import normalize_text
 from ..domain.models import DocumentSection, NormalizedDocument, SourceDocument, make_document_section, make_normalized_document
 
 

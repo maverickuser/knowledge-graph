@@ -13,7 +13,7 @@ from ..domain.models import (
     PrimaryGap,
 )
 from .abstain import should_abstain
-from .rank import DiagnosisCandidate, rank_candidates
+from .rank import DiagnosisCandidate
 
 
 _EVIDENCE_AUTHORITY = {
