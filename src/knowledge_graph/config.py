@@ -24,6 +24,7 @@ class AppConfig:
     graph_dir: Path
     aws_region: str
     dynamodb_table_name: str
+    snapshot_bucket_name: str
     environment: str = "local"
 
     def ensure_directories(self) -> None:
@@ -45,10 +46,15 @@ def load_app_config(env: dict[str, str] | None = None) -> AppConfig:
     dynamodb_table_name = source.get(
         "JEE_RAG_DYNAMODB_TABLE", "knowledge-graph"
     )
+    snapshot_bucket_name = source.get(
+        "JEE_RAG_SNAPSHOT_BUCKET", "knowledge-graph-snapshots"
+    )
     environment = source.get("JEE_RAG_ENVIRONMENT", "local")
 
     if not dynamodb_table_name.strip():
         raise ConfigurationError("JEE_RAG_DYNAMODB_TABLE must not be empty")
+    if not snapshot_bucket_name.strip():
+        raise ConfigurationError("JEE_RAG_SNAPSHOT_BUCKET must not be empty")
 
     data_root = workspace_root / "data"
     return AppConfig(
@@ -59,5 +65,6 @@ def load_app_config(env: dict[str, str] | None = None) -> AppConfig:
         graph_dir=data_root / "graph",
         aws_region=aws_region,
         dynamodb_table_name=dynamodb_table_name,
+        snapshot_bucket_name=snapshot_bucket_name,
         environment=environment,
     )

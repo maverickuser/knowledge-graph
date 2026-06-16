@@ -25,7 +25,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
           aws-region: ${{ vars.AWS_REGION || 'ap-south-1' }}
 
       - name: Terraform init
@@ -66,7 +66,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
           aws-region: ${{ vars.AWS_REGION || 'ap-south-1' }}
 
       - name: Terraform init
@@ -87,6 +87,12 @@ jobs:
       - name: Terraform apply
         run: terraform -chdir=terraform apply -input=false -auto-approve tfplan
 
+      - name: Read Terraform outputs
+        id: terraform-output
+        run: |
+          echo "dynamodb_table_name=$(terraform -chdir=terraform output -raw dynamodb_table_name)" >> "$GITHUB_OUTPUT"
+          echo "snapshot_bucket_name=$(terraform -chdir=terraform output -raw snapshot_bucket_name)" >> "$GITHUB_OUTPUT"
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -98,6 +104,10 @@ jobs:
           python -m pip install -e .
 
       - name: Persist released graph snapshot to DynamoDB
+        env:
+          JEE_RAG_DYNAMODB_TABLE: ${{ steps.terraform-output.outputs.dynamodb_table_name }}
+          JEE_RAG_SNAPSHOT_BUCKET: ${{ steps.terraform-output.outputs.snapshot_bucket_name }}
+          AWS_REGION: ${{ vars.AWS_REGION || 'ap-south-1' }}
         run: |
           python -m knowledge_graph.main persist-snapshot \
             --snapshot-path release/physics-v4.snapshot.json \

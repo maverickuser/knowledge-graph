@@ -116,6 +116,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                     "graph_dir": str(config.graph_dir),
                     "aws_region": config.aws_region,
                     "dynamodb_table_name": config.dynamodb_table_name,
+                    "snapshot_bucket_name": config.snapshot_bucket_name,
                     "environment": config.environment,
                 },
                 indent=2,
@@ -142,6 +143,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             repository = DynamoDBKnowledgeGraphRepository(
                 config.dynamodb_table_name,
                 config.aws_region,
+                snapshot_bucket_name=config.snapshot_bucket_name,
             )
             repository.save_snapshot(snapshot)
         print(
@@ -202,9 +204,12 @@ def main(argv: Sequence[str] | None = None) -> int:
             repository = DynamoDBKnowledgeGraphRepository(
                 config.dynamodb_table_name,
                 config.aws_region,
+                snapshot_bucket_name=config.snapshot_bucket_name,
             )
             repository.save_snapshot(snapshot)
-            destination = Path(f"dynamodb://{config.dynamodb_table_name}/{snapshot.graph_version}")
+            destination = (
+                f"s3://{config.snapshot_bucket_name}/snapshots/{snapshot.graph_version}/{snapshot.id}.json"
+            )
         print(
             json.dumps(
                 {

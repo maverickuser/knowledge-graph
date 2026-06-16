@@ -57,6 +57,33 @@ data "aws_iam_policy_document" "graph_store" {
       "${aws_dynamodb_table.graph.arn}/index/*",
     ]
   }
+
+  statement {
+    effect = "Allow"
+
+    actions = [
+      "s3:GetObject",
+      "s3:PutObject",
+      "s3:DeleteObject",
+    ]
+
+    resources = [
+      "${aws_s3_bucket.snapshots.arn}/snapshots/*",
+    ]
+  }
+
+  statement {
+    effect = "Allow"
+
+    actions = [
+      "s3:ListBucket",
+      "s3:GetBucketLocation",
+    ]
+
+    resources = [
+      aws_s3_bucket.snapshots.arn,
+    ]
+  }
 }
 
 resource "aws_iam_policy" "graph_store" {

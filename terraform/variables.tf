@@ -22,6 +22,12 @@ variable "dynamodb_table_name" {
   default     = ""
 }
 
+variable "snapshot_bucket_name" {
+  type        = string
+  description = "Optional override for the S3 bucket that stores full graph snapshots."
+  default     = ""
+}
+
 variable "github_repository" {
   type        = string
   description = "GitHub repository in owner/name format."

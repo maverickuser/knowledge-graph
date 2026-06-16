@@ -15,11 +15,6 @@ resource "aws_dynamodb_table" "graph" {
   }
 
   attribute {
-    name = "artifact_type"
-    type = "S"
-  }
-
-  attribute {
     name = "graph_version"
     type = "S"
   }

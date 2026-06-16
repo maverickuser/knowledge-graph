@@ -12,7 +12,7 @@ poetry run knowledge-graph --show-config
 ## Project Shape
 
 - Local extraction and graph construction run on the developer machine.
-- Canonical graph state is persisted in AWS DynamoDB.
+- Canonical graph metadata is persisted in AWS DynamoDB; full graph snapshots are stored in S3.
 - Terraform provisions the AWS table and GitHub Actions access role.
 - GitHub Actions runs unit tests, integration tests, and Terraform validation.
 
@@ -52,9 +52,10 @@ python -m knowledge_graph.main show --graph-version physics-v1
 
 Local output is written under `data/graph/` and `data/manifests/`. A checked-in
 release snapshot is stored under `release/` for the CD pipeline. To persist the
-same validated snapshot to the configured DynamoDB table, add
-`--backend dynamodb` after applying the Terraform stack and configuring AWS
-credentials.
+same validated snapshot to AWS, add `--backend dynamodb` after applying the
+Terraform stack and configuring AWS credentials. The DynamoDB item stores
+snapshot metadata, counts, checksum, indexes, and the S3 pointer; the full
+snapshot JSON is written to S3.
 
 When the corpus contains `RefrenceBook_HCVERMA`, `RefrenceBook_NCERT`, and
 `syllabus` folders, the build adds compact textbook evidence to concepts and
@@ -101,6 +102,8 @@ To persist the checked-in release snapshot to the configured DynamoDB table:
 
 ```powershell
 $env:PYTHONPATH = "src"
+$env:JEE_RAG_DYNAMODB_TABLE = "knowledge-graph-dev"
+$env:JEE_RAG_SNAPSHOT_BUCKET = "knowledge-graph-dev-snapshots-<aws-account-id>"
 python -m knowledge_graph.main persist-snapshot `
   --snapshot-path release/physics-v4.snapshot.json `
   --backend dynamodb
@@ -131,8 +134,21 @@ The hardening tests cover:
 1. Bootstrap the remote state bucket and lock table once from `terraform/bootstrap/`.
 2. Run `terraform init`, `terraform plan`, and `terraform apply` from `terraform/` with the S3 backend configured.
 3. Use the GitHub Actions OIDC role for CI/CD access.
-4. Store graph snapshots, summaries, and diagnostics in DynamoDB.
-5. For release builds, persist the checked-in snapshot from `release/` after Terraform apply.
+4. Store graph snapshot metadata, summaries, and diagnostics in DynamoDB.
+5. Store full graph snapshot JSON objects in S3.
+6. For release builds, persist the checked-in snapshot from `release/` after Terraform apply.
+
+The CD workflow expects these GitHub repository variables/secrets:
+
+- `vars.AWS_ROLE_ARN`: set this to the Terraform output `github_actions_role_arn`.
+- `vars.AWS_REGION`: optional, defaults to `ap-south-1`.
+- `secrets.TF_STATE_BUCKET`: remote Terraform state bucket.
+- `secrets.TF_STATE_KEY`: remote Terraform state key.
+- `secrets.TF_LOCK_TABLE`: remote Terraform lock table.
+
+After `terraform apply`, the workflow reads `dynamodb_table_name` and
+`snapshot_bucket_name` from Terraform outputs and passes them as
+`JEE_RAG_DYNAMODB_TABLE` and `JEE_RAG_SNAPSHOT_BUCKET` to the persistence step.
 
 ## Terraform bootstrap
 

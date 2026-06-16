@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from io import BytesIO
 from tempfile import TemporaryDirectory
 from unittest import TestCase
 from unittest.mock import patch
@@ -46,22 +47,41 @@ class StorageTests(TestCase):
                 self.name = name
                 return self.table
 
+        class FakeS3Client:
+            def __init__(self) -> None:
+                self.objects = {}
+
+            def put_object(self, *, Bucket, Key, Body, ContentType, Metadata) -> None:
+                self.objects[(Bucket, Key)] = {
+                    "Body": Body,
+                    "ContentType": ContentType,
+                    "Metadata": Metadata,
+                }
+
+            def get_object(self, *, Bucket, Key):
+                return {"Body": BytesIO(self.objects[(Bucket, Key)]["Body"])}
+
         snapshot = build_sample_snapshot()
         table = FakeTable()
+        s3 = FakeS3Client()
         repository = DynamoDBKnowledgeGraphRepository(
             "graph-table",
             "ap-south-1",
+            snapshot_bucket_name="graph-snapshots",
             resource=FakeResource(table),
+            s3_client=s3,
         )
         repository.save_snapshot(snapshot)
 
         artifact_types = {item["artifact_type"] for item in table.items}
-        self.assertIn("GraphSnapshot", artifact_types)
+        self.assertIn("GraphSnapshotMetadata", artifact_types)
         self.assertIn("CommunitySummary", artifact_types)
         self.assertIn("DiagnosticRecord", artifact_types)
         snapshot_item = next(
-            item for item in table.items if item["artifact_type"] == "GraphSnapshot"
+            item for item in table.items if item["artifact_type"] == "GraphSnapshotMetadata"
         )
+        self.assertLess(len(snapshot_item["payload"].encode("utf-8")), 400 * 1024)
+        self.assertEqual(len(s3.objects), 1)
         with patch.object(repository, "_query_single", return_value=snapshot_item):
             loaded = repository.load_snapshot(snapshot.graph_version)
         self.assertEqual(loaded, snapshot)
