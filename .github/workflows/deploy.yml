@@ -57,6 +57,8 @@ jobs:
             -backend-config="encrypt=true"
 
       - name: Terraform plan
+        env:
+          TF_VAR_github_repository: ${{ github.repository }}
         run: terraform -chdir=terraform plan -input=false -out=tfplan
 
       - name: Upload plan artifact
@@ -117,6 +119,8 @@ jobs:
           path: terraform
 
       - name: Terraform apply
+        env:
+          TF_VAR_github_repository: ${{ github.repository }}
         run: terraform -chdir=terraform apply -input=false -auto-approve tfplan
 
       - name: Read Terraform outputs

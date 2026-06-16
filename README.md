@@ -156,6 +156,8 @@ or point `TF_STATE_DYNAMODB_TABLE` to the bootstrap output
 After `terraform apply`, the workflow reads `dynamodb_table_name` and
 `snapshot_bucket_name` from Terraform outputs and passes them as
 `JEE_RAG_DYNAMODB_TABLE` and `JEE_RAG_SNAPSHOT_BUCKET` to the persistence step.
+The workflow passes Terraform's required `github_repository` input from
+`${{ github.repository }}`.
 
 ## Terraform bootstrap
 
