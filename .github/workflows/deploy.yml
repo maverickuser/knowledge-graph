@@ -8,9 +8,9 @@ on:
 
 env:
   AWS_REGION: ${{ vars.AWS_REGION || 'ap-south-1' }}
-  TF_STATE_BUCKET: ${{ vars.TF_STATE_BUCKET || 'knowledge-graph-terraform-state' }}
+  TF_STATE_BUCKET: ${{ vars.TF_STATE_BUCKET || 'knowledge-graph-terraform-state-bucket' }}
   TF_STATE_KEY: ${{ vars.TF_STATE_KEY || 'knowledge-graph/terraform.tfstate' }}
-  TF_STATE_DYNAMODB_TABLE: ${{ vars.TF_STATE_DYNAMODB_TABLE || 'knowledge-graph-terraform-locks' }}
+  TF_STATE_DYNAMODB_TABLE: ${{ vars.TF_STATE_DYNAMODB_TABLE || 'knowledge-graph-terraform-lock' }}
 
 jobs:
   terraform-plan:

@@ -142,9 +142,9 @@ The CD workflow expects these GitHub repository variables/secrets:
 
 - `secrets.AWS_ROLE_TO_ASSUME`: set this to the Terraform output `github_actions_role_arn`.
 - `vars.AWS_REGION`: optional, defaults to `ap-south-1`.
-- `vars.TF_STATE_BUCKET`: optional remote Terraform state bucket, defaults to `knowledge-graph-terraform-state`.
+- `vars.TF_STATE_BUCKET`: optional remote Terraform state bucket, defaults to `knowledge-graph-terraform-state-bucket`.
 - `vars.TF_STATE_KEY`: optional remote Terraform state key, defaults to `knowledge-graph/terraform.tfstate`.
-- `vars.TF_STATE_DYNAMODB_TABLE`: optional remote Terraform lock table, defaults to `knowledge-graph-terraform-locks`.
+- `vars.TF_STATE_DYNAMODB_TABLE`: optional remote Terraform lock table, defaults to `knowledge-graph-terraform-lock`.
 
 After `terraform apply`, the workflow reads `dynamodb_table_name` and
 `snapshot_bucket_name` from Terraform outputs and passes them as
