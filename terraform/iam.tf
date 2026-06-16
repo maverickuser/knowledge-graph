@@ -4,7 +4,7 @@ data "aws_iam_policy_document" "github_assume_role" {
 
     principals {
       type        = "Federated"
-      identifiers = [aws_iam_openid_connect_provider.github.arn]
+      identifiers = [data.aws_iam_openid_connect_provider.github.arn]
     }
 
     actions = ["sts:AssumeRoleWithWebIdentity"]
@@ -23,10 +23,8 @@ data "aws_iam_policy_document" "github_assume_role" {
   }
 }
 
-resource "aws_iam_openid_connect_provider" "github" {
-  url             = "https://token.actions.githubusercontent.com"
-  client_id_list  = ["sts.amazonaws.com"]
-  thumbprint_list = var.github_oidc_thumbprints
+data "aws_iam_openid_connect_provider" "github" {
+  url = "https://token.actions.githubusercontent.com"
 }
 
 resource "aws_iam_role" "github_actions" {

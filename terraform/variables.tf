@@ -33,8 +33,3 @@ variable "github_repository" {
   description = "GitHub repository in owner/name format."
 }
 
-variable "github_oidc_thumbprints" {
-  type        = list(string)
-  description = "Thumbprints for the GitHub OIDC provider."
-  default     = ["6938fd4d98bab03faadb97b34396831e3780aea1"]
-}

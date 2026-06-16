@@ -153,6 +153,10 @@ Create or recreate `knowledge-graph-terraform-lock` with partition key `LockID`,
 or point `TF_STATE_DYNAMODB_TABLE` to the bootstrap output
 `state_lock_table_name`.
 
+The main Terraform stack reuses the account-level GitHub Actions OIDC provider
+for `https://token.actions.githubusercontent.com`. If the account does not have
+that provider yet, create it once before applying the main stack.
+
 After `terraform apply`, the workflow reads `dynamodb_table_name` and
 `snapshot_bucket_name` from Terraform outputs and passes them as
 `JEE_RAG_DYNAMODB_TABLE` and `JEE_RAG_SNAPSHOT_BUCKET` to the persistence step.
