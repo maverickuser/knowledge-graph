@@ -49,7 +49,7 @@ jobs:
         run: ruff check src tests
 
       - name: Run CLI smoke test
-        run: python -m jee_rag_knowledge_graph.main --show-config
+        run: python -m knowledge_graph.main --show-config
 
   terraform-validate:
     name: Terraform Validate
@@ -77,3 +77,4 @@ jobs:
 
       - name: Terraform validate (root)
         run: terraform -chdir=terraform validate
+

@@ -3,11 +3,11 @@ from __future__ import annotations
 from dataclasses import replace
 from unittest import TestCase
 
-from jee_rag_knowledge_graph.community.partition import partition_communities
-from jee_rag_knowledge_graph.community.summarize import generate_community_summaries
-from jee_rag_knowledge_graph.diagnosis.retrieve import diagnose_response, find_relevant_communities
-from jee_rag_knowledge_graph.domain.ids import stable_id
-from jee_rag_knowledge_graph.graph.build import build_graph
+from knowledge_graph.community.partition import partition_communities
+from knowledge_graph.community.summarize import generate_community_summaries
+from knowledge_graph.diagnosis.retrieve import diagnose_response, find_relevant_communities
+from knowledge_graph.domain.ids import stable_id
+from knowledge_graph.graph.build import build_graph
 from tests.sample_data import build_sample_seed_bundle
 
 
@@ -58,3 +58,4 @@ class PipelineTests(TestCase):
 
         self.assertTrue(diagnosis.abstained)
         self.assertEqual(diagnosis.abstention_reason, "visual_interpretation_required")
+

@@ -9,10 +9,10 @@ from zipfile import ZipFile
 
 from unittest import TestCase
 
-import jee_rag_knowledge_graph.ingestion.loaders as loaders
-from jee_rag_knowledge_graph.exceptions import ExtractionError, UnsupportedSourceFormatError
-from jee_rag_knowledge_graph.ingestion.loaders import load_local_source, read_source_text
-from jee_rag_knowledge_graph.ingestion.normalize import normalize_source_document
+import knowledge_graph.ingestion.loaders as loaders
+from knowledge_graph.exceptions import ExtractionError, UnsupportedSourceFormatError
+from knowledge_graph.ingestion.loaders import load_local_source, read_source_text
+from knowledge_graph.ingestion.normalize import normalize_source_document
 from tests.sample_data import SAMPLE_SYLLABUS
 
 
@@ -134,3 +134,4 @@ class IngestionTests(TestCase):
 
             with self.assertRaises(ExtractionError):
                 read_source_text(docx_path)
+

@@ -27,7 +27,7 @@ If you already have a local corpus folder, you can build a seed bundle directly 
 
 ```python
 from pathlib import Path
-from jee_rag_knowledge_graph.ingestion.physics_corpus import build_physics_seed_bundle
+from knowledge_graph.ingestion.physics_corpus import build_physics_seed_bundle
 
 seed_bundle = build_physics_seed_bundle(Path(r"C:\Users\Saurabh\Downloads\physics"))
 ```
@@ -38,7 +38,7 @@ Build the complete graph, communities, summaries, manifest, and local JSON snaps
 
 ```powershell
 $env:PYTHONPATH = "src"
-python -m jee_rag_knowledge_graph.main build `
+python -m knowledge_graph.main build `
   --source-root "C:\Users\Saurabh\Downloads\physics" `
   --graph-version physics-v1
 ```
@@ -46,8 +46,8 @@ python -m jee_rag_knowledge_graph.main build `
 Validate or inspect the persisted graph:
 
 ```powershell
-python -m jee_rag_knowledge_graph.main validate --graph-version physics-v1
-python -m jee_rag_knowledge_graph.main show --graph-version physics-v1
+python -m knowledge_graph.main validate --graph-version physics-v1
+python -m knowledge_graph.main show --graph-version physics-v1
 ```
 
 Local output is written under `data/graph/` and `data/manifests/`. A checked-in
@@ -72,7 +72,7 @@ Generate structured semantic interpretations locally through Codex:
 
 ```powershell
 $env:PYTHONPATH = "src"
-python -m jee_rag_knowledge_graph.main interpret-visual `
+python -m knowledge_graph.main interpret-visual `
   --graph-version physics-v4
 ```
 
@@ -89,7 +89,7 @@ Export a project-local visualization of the current graph snapshot:
 
 ```powershell
 $env:PYTHONPATH = "src"
-python -m jee_rag_knowledge_graph.main visualize `
+python -m knowledge_graph.main visualize `
   --graph-version physics-v4
 ```
 
@@ -101,7 +101,7 @@ To persist the checked-in release snapshot to the configured DynamoDB table:
 
 ```powershell
 $env:PYTHONPATH = "src"
-python -m jee_rag_knowledge_graph.main persist-snapshot `
+python -m knowledge_graph.main persist-snapshot `
   --snapshot-path release/physics-v4.snapshot.json `
   --backend dynamodb
 ```
@@ -145,3 +145,4 @@ terraform apply
 ```
 
 Provide `state_bucket_name` through `terraform.tfvars` or `-var` before applying, and make sure the bucket name is globally unique.
+

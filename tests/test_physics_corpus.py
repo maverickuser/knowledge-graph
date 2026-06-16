@@ -5,11 +5,11 @@ import json
 from tempfile import TemporaryDirectory
 from unittest import TestCase
 
-from jee_rag_knowledge_graph.community.partition import partition_communities
-from jee_rag_knowledge_graph.community.summarize import generate_community_summaries
-from jee_rag_knowledge_graph.diagnosis.retrieve import diagnose_response
-from jee_rag_knowledge_graph.graph.build import build_graph
-from jee_rag_knowledge_graph.ingestion.physics_corpus import build_physics_seed_bundle
+from knowledge_graph.community.partition import partition_communities
+from knowledge_graph.community.summarize import generate_community_summaries
+from knowledge_graph.diagnosis.retrieve import diagnose_response
+from knowledge_graph.graph.build import build_graph
+from knowledge_graph.ingestion.physics_corpus import build_physics_seed_bundle
 
 
 class PhysicsCorpusTests(TestCase):
@@ -69,3 +69,4 @@ class PhysicsCorpusTests(TestCase):
 
         self.assertEqual(len(seed_bundle.assessment_items), 1)
         self.assertEqual(seed_bundle.concepts[0].canonical_name, "Rotational Mechanics")
+

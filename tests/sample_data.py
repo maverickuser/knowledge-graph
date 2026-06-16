@@ -5,11 +5,11 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from pathlib import Path
 
-from jee_rag_knowledge_graph.community.partition import partition_communities
-from jee_rag_knowledge_graph.community.summarize import generate_community_summaries
-from jee_rag_knowledge_graph.diagnosis.retrieve import diagnose_response
-from jee_rag_knowledge_graph.domain.ids import stable_id
-from jee_rag_knowledge_graph.domain.models import (
+from knowledge_graph.community.partition import partition_communities
+from knowledge_graph.community.summarize import generate_community_summaries
+from knowledge_graph.diagnosis.retrieve import diagnose_response
+from knowledge_graph.domain.ids import stable_id
+from knowledge_graph.domain.models import (
     AssessmentItem,
     Concept,
     EvidenceArtifact,
@@ -20,9 +20,9 @@ from jee_rag_knowledge_graph.domain.models import (
     Skill,
     SyllabusNode,
 )
-from jee_rag_knowledge_graph.graph.build import build_graph
-from jee_rag_knowledge_graph.ingestion.loaders import load_local_source
-from jee_rag_knowledge_graph.ingestion.normalize import normalize_source_document
+from knowledge_graph.graph.build import build_graph
+from knowledge_graph.ingestion.loaders import load_local_source
+from knowledge_graph.ingestion.normalize import normalize_source_document
 
 
 FIXTURE_DIR = Path(__file__).resolve().parent / "fixtures"
@@ -195,3 +195,4 @@ def build_sample_snapshot() -> GraphSnapshot:
         response_text="I factor quadratics by using the distributive law, but I made a sign error.",
     )
     return snapshot.with_communities(communities).with_summaries(summaries).with_diagnostics((diagnostic,))
+

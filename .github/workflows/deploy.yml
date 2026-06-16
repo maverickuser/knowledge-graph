@@ -99,6 +99,7 @@ jobs:
 
       - name: Persist released graph snapshot to DynamoDB
         run: |
-          python -m jee_rag_knowledge_graph.main persist-snapshot \
+          python -m knowledge_graph.main persist-snapshot \
             --snapshot-path release/physics-v4.snapshot.json \
             --backend dynamodb
+

@@ -4,9 +4,9 @@ from tempfile import TemporaryDirectory
 from unittest import TestCase
 from unittest.mock import patch
 
-from jee_rag_knowledge_graph.storage.dynamodb import DynamoDBKnowledgeGraphRepository
-from jee_rag_knowledge_graph.storage.json import JsonKnowledgeGraphRepository
-from jee_rag_knowledge_graph.storage.memory import InMemoryKnowledgeGraphRepository
+from knowledge_graph.storage.dynamodb import DynamoDBKnowledgeGraphRepository
+from knowledge_graph.storage.json import JsonKnowledgeGraphRepository
+from knowledge_graph.storage.memory import InMemoryKnowledgeGraphRepository
 from tests.sample_data import build_sample_snapshot
 
 
@@ -65,3 +65,4 @@ class StorageTests(TestCase):
         with patch.object(repository, "_query_single", return_value=snapshot_item):
             loaded = repository.load_snapshot(snapshot.graph_version)
         self.assertEqual(loaded, snapshot)
+

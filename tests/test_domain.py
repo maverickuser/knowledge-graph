@@ -2,9 +2,9 @@ from __future__ import annotations
 
 from unittest import TestCase
 
-from jee_rag_knowledge_graph.domain.ids import stable_id
-from jee_rag_knowledge_graph.domain.models import Concept, GraphSnapshot
-from jee_rag_knowledge_graph.domain.validation import ValidationError, validate_graph_snapshot
+from knowledge_graph.domain.ids import stable_id
+from knowledge_graph.domain.models import Concept, GraphSnapshot
+from knowledge_graph.domain.validation import ValidationError, validate_graph_snapshot
 from tests.sample_data import build_sample_snapshot
 
 
@@ -52,3 +52,4 @@ class DomainTests(TestCase):
         self.assertFalse(report.is_valid)
         with self.assertRaises(ValidationError):
             report.raise_for_errors()
+

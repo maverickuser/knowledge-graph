@@ -6,8 +6,8 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest import TestCase
 
-from jee_rag_knowledge_graph.domain.models import EvidenceArtifact, VisualInterpretation
-from jee_rag_knowledge_graph.vision.interpret import enrich_visual_interpretations
+from knowledge_graph.domain.models import EvidenceArtifact, VisualInterpretation
+from knowledge_graph.vision.interpret import enrich_visual_interpretations
 from tests.sample_data import build_sample_snapshot
 
 
@@ -85,3 +85,4 @@ class VisualInterpretationTests(TestCase):
             first.snapshot.assessment_items[0].visual_interpretation_confidence,
             0.9,
         )
+

@@ -4,7 +4,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest import TestCase
 
-from jee_rag_knowledge_graph.ingestion.visual_corpus import parse_question_regions
+from knowledge_graph.ingestion.visual_corpus import parse_question_regions
 
 
 class VisualCorpusTests(TestCase):
@@ -28,3 +28,4 @@ class VisualCorpusTests(TestCase):
         self.assertEqual(by_number[26].y_max, 346.0)
         self.assertLess(by_number[26].x_max, 300.0)
         self.assertGreaterEqual(by_number[28].x_min, 300.0)
+

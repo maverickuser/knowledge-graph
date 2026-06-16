@@ -144,7 +144,7 @@ For the current repository size, the implementation can remain a single Python p
 
 Recommended deployment units:
 
-- library code in `src/jee_rag_knowledge_graph`
+- library code in `src/knowledge_graph`
 - tests in `tests`
 - spec artifacts in `.specify`
 - terraform infrastructure in `terraform`
@@ -185,25 +185,25 @@ Recommended AWS infrastructure:
 
 Recommended module layout:
 
-- `src/jee_rag_knowledge_graph/__init__.py`
-- `src/jee_rag_knowledge_graph/main.py`
-- `src/jee_rag_knowledge_graph/config.py`
-- `src/jee_rag_knowledge_graph/domain/models.py`
-- `src/jee_rag_knowledge_graph/domain/validation.py`
-- `src/jee_rag_knowledge_graph/ingestion/normalize.py`
-- `src/jee_rag_knowledge_graph/ingestion/loaders.py`
-- `src/jee_rag_knowledge_graph/graph/build.py`
-- `src/jee_rag_knowledge_graph/graph/validate.py`
-- `src/jee_rag_knowledge_graph/community/partition.py`
-- `src/jee_rag_knowledge_graph/community/summarize.py`
-- `src/jee_rag_knowledge_graph/diagnosis/retrieve.py`
-- `src/jee_rag_knowledge_graph/diagnosis/rank.py`
-- `src/jee_rag_knowledge_graph/diagnosis/abstain.py`
-- `src/jee_rag_knowledge_graph/output/format.py`
-- `src/jee_rag_knowledge_graph/storage/repository.py`
-- `src/jee_rag_knowledge_graph/storage/memory.py`
-- `src/jee_rag_knowledge_graph/storage/json.py`
-- `src/jee_rag_knowledge_graph/storage/dynamodb.py`
+- `src/knowledge_graph/__init__.py`
+- `src/knowledge_graph/main.py`
+- `src/knowledge_graph/config.py`
+- `src/knowledge_graph/domain/models.py`
+- `src/knowledge_graph/domain/validation.py`
+- `src/knowledge_graph/ingestion/normalize.py`
+- `src/knowledge_graph/ingestion/loaders.py`
+- `src/knowledge_graph/graph/build.py`
+- `src/knowledge_graph/graph/validate.py`
+- `src/knowledge_graph/community/partition.py`
+- `src/knowledge_graph/community/summarize.py`
+- `src/knowledge_graph/diagnosis/retrieve.py`
+- `src/knowledge_graph/diagnosis/rank.py`
+- `src/knowledge_graph/diagnosis/abstain.py`
+- `src/knowledge_graph/output/format.py`
+- `src/knowledge_graph/storage/repository.py`
+- `src/knowledge_graph/storage/memory.py`
+- `src/knowledge_graph/storage/json.py`
+- `src/knowledge_graph/storage/dynamodb.py`
 
 This layout keeps concerns isolated and makes unit testing easier.
 
@@ -454,7 +454,7 @@ This keeps the project lightweight while allowing future migration to a graph da
 
 Deliverables:
 
-- package skeleton under `src/jee_rag_knowledge_graph`
+- package skeleton under `src/knowledge_graph`
 - base test harness
 - configuration entry points
 - repository abstraction
@@ -657,3 +657,4 @@ The implementation is complete when:
 4. Add community partitioning and summary generation.
 5. Implement diagnosis and abstention logic.
 6. Add integration tests around the full pipeline.
+

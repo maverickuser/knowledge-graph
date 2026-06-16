@@ -5,7 +5,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest import TestCase
 
-from jee_rag_knowledge_graph.main import main
+from knowledge_graph.main import main
 from tests.sample_data import build_sample_snapshot
 
 
@@ -73,3 +73,4 @@ class CliTests(TestCase):
                     __import__("os").environ.pop("JEE_RAG_WORKSPACE_ROOT", None)
                 else:
                     __import__("os").environ["JEE_RAG_WORKSPACE_ROOT"] = previous
+
