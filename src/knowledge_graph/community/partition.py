@@ -31,9 +31,6 @@ def partition_communities(snapshot: GraphSnapshot) -> tuple[Community, ...]:
     descendant_cache: dict[str, set[str]] = {
         node.id: _descendant_ids(node.id, children_by_parent) for node in snapshot.syllabus_nodes
     }
-    concept_by_id = {concept.id: concept for concept in snapshot.concepts}
-    skill_by_id = {skill.id: skill for skill in snapshot.skills}
-    misconception_by_id = {misconception.id: misconception for misconception in snapshot.misconceptions}
 
     communities: list[Community] = []
     for node in sorted(snapshot.syllabus_nodes, key=lambda item: (item.order_index, item.title, item.id)):

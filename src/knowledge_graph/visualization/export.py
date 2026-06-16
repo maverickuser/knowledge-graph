@@ -153,8 +153,6 @@ def build_graph_visualization(snapshot: GraphSnapshot) -> GraphVisualization:
     summaries = _community_summaries(snapshot)
     concept_counts, skill_counts, misconception_counts = _community_statistics(snapshot)
     depths = _community_depths(snapshot.communities)
-    concept_index = {concept.id: concept for concept in snapshot.concepts}
-    skill_index = {skill.id: skill for skill in snapshot.skills}
     entity_name_by_id = {concept.id: concept.canonical_name for concept in snapshot.concepts}
     entity_name_by_id.update({skill.id: skill.canonical_name for skill in snapshot.skills})
     community_memberships: dict[str, list[str]] = defaultdict(list)

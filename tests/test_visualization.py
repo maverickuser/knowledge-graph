@@ -6,7 +6,7 @@ from tempfile import TemporaryDirectory
 from unittest import TestCase
 
 from knowledge_graph.main import main
-from knowledge_graph.visualization.export import build_graph_visualization, export_graph_visualization
+from knowledge_graph.visualization.export import export_graph_visualization
 from tests.sample_data import build_sample_seed_bundle
 from knowledge_graph.community.partition import partition_communities
 from knowledge_graph.community.summarize import generate_community_summaries

@@ -7,7 +7,6 @@ from collections import defaultdict
 from ..domain.ids import normalize_text, stable_id
 from ..domain.models import (
     Community,
-    CommunitySummary,
     DiagnosticRecord,
     GraphSnapshot,
     MisconceptionMatch,
