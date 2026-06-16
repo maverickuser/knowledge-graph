@@ -34,6 +34,19 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ${{ env.AWS_REGION }}
 
+      - name: Verify Terraform lock table schema
+        run: |
+          hash_key=$(aws dynamodb describe-table \
+            --table-name "$TF_STATE_DYNAMODB_TABLE" \
+            --region "$AWS_REGION" \
+            --query "Table.KeySchema[?KeyType=='HASH'].AttributeName | [0]" \
+            --output text)
+          if [ "$hash_key" != "LockID" ]; then
+            echo "Terraform state lock table '$TF_STATE_DYNAMODB_TABLE' must have partition key 'LockID', found '$hash_key'."
+            echo "Create or recreate the lock table with a string partition key named LockID, then rerun this workflow."
+            exit 1
+          fi
+
       - name: Terraform init
         run: |
           terraform -chdir=terraform init -input=false -reconfigure \
@@ -74,6 +87,19 @@ jobs:
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ${{ env.AWS_REGION }}
+
+      - name: Verify Terraform lock table schema
+        run: |
+          hash_key=$(aws dynamodb describe-table \
+            --table-name "$TF_STATE_DYNAMODB_TABLE" \
+            --region "$AWS_REGION" \
+            --query "Table.KeySchema[?KeyType=='HASH'].AttributeName | [0]" \
+            --output text)
+          if [ "$hash_key" != "LockID" ]; then
+            echo "Terraform state lock table '$TF_STATE_DYNAMODB_TABLE' must have partition key 'LockID', found '$hash_key'."
+            echo "Create or recreate the lock table with a string partition key named LockID, then rerun this workflow."
+            exit 1
+          fi
 
       - name: Terraform init
         run: |

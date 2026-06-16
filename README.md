@@ -146,6 +146,13 @@ The CD workflow expects these GitHub repository variables/secrets:
 - `vars.TF_STATE_KEY`: optional remote Terraform state key, defaults to `knowledge-graph/terraform.tfstate`.
 - `vars.TF_STATE_DYNAMODB_TABLE`: optional remote Terraform lock table, defaults to `knowledge-graph-terraform-lock`.
 
+The Terraform lock table must use a string partition key named `LockID`.
+If Terraform reports a missing key named `Key` or a schema mismatch while
+locking state, the configured lock table was created with the wrong key schema.
+Create or recreate `knowledge-graph-terraform-lock` with partition key `LockID`,
+or point `TF_STATE_DYNAMODB_TABLE` to the bootstrap output
+`state_lock_table_name`.
+
 After `terraform apply`, the workflow reads `dynamodb_table_name` and
 `snapshot_bucket_name` from Terraform outputs and passes them as
 `JEE_RAG_DYNAMODB_TABLE` and `JEE_RAG_SNAPSHOT_BUCKET` to the persistence step.
