@@ -1,0 +1,4 @@
+aws_region         = "ap-south-1"
+project_name       = "knowledge-graph"
+environment        = "dev"
+github_repository  = "OWNER/knowledge-graph"

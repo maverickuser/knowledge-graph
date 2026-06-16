@@ -1,0 +1,78 @@
+{
+  "built_at": "2026-06-15T14:46:34.876626+00:00",
+  "counts": {
+    "assessment_items": 231,
+    "communities": 21,
+    "community_summaries": 21,
+    "concepts": 20,
+    "evidence_artifacts": 514,
+    "misconceptions": 278,
+    "normalized_documents": 51,
+    "prerequisite_edges": 56,
+    "requires_visual_interpretation": 59,
+    "skills": 26,
+    "source_documents": 43,
+    "syllabus_nodes": 21,
+    "visual_assessment_items": 231,
+    "visual_evidence_artifacts": 234,
+    "visual_interpretations": 59,
+    "visual_interpretations_requiring_review": 0
+  },
+  "extraction_version": "physics-extract-v4",
+  "graph_version": "physics-v4",
+  "reference_warnings": [
+    "The registered syllabus PDF contains no extractable text; the JEE topic taxonomy is used for hierarchy."
+  ],
+  "seed_bundle_id": "seed-e7993fff6204",
+  "skipped_sources": [
+    "C:\\Users\\Saurabh\\Downloads\\physics\\PastYearPaper\\jee_physics_knowledge_graph.txt: skipped because a structured derivative is available",
+    "C:\\Users\\Saurabh\\Downloads\\physics\\PastYearPaper\\jee_physics_past_year_solutions.md: skipped because a structured derivative is available",
+    "C:\\Users\\Saurabh\\Downloads\\physics\\PastYearPaper\\original (10).pdf: skipped because a structured derivative is available",
+    "C:\\Users\\Saurabh\\Downloads\\physics\\PastYearPaper\\original (11).pdf: skipped because a structured derivative is available",
+    "C:\\Users\\Saurabh\\Downloads\\physics\\PastYearPaper\\original (2).pdf: skipped because a structured derivative is available",
+    "C:\\Users\\Saurabh\\Downloads\\physics\\PastYearPaper\\original (3).pdf: skipped because a structured derivative is available",
+    "C:\\Users\\Saurabh\\Downloads\\physics\\PastYearPaper\\original (4).pdf: skipped because a structured derivative is available",
+    "C:\\Users\\Saurabh\\Downloads\\physics\\PastYearPaper\\original (5).pdf: skipped because a structured derivative is available",
+    "C:\\Users\\Saurabh\\Downloads\\physics\\PastYearPaper\\original (6).pdf: skipped because a structured derivative is available",
+    "C:\\Users\\Saurabh\\Downloads\\physics\\PastYearPaper\\original (7).pdf: skipped because a structured derivative is available",
+    "C:\\Users\\Saurabh\\Downloads\\physics\\PastYearPaper\\original (8).pdf: skipped because a structured derivative is available",
+    "C:\\Users\\Saurabh\\Downloads\\physics\\PastYearPaper\\original (9).pdf: skipped because a structured derivative is available"
+  ],
+  "snapshot_id": "graph-a3056ddc5296",
+  "source_authority_weights": {
+    "hc_verma": 1.0,
+    "jee_syllabus": 0.95,
+    "ncert": 0.8,
+    "past_paper": 0.9
+  },
+  "source_root": "C:\\Users\\Saurabh\\Downloads\\physics",
+  "topic_counts": {
+    "Atoms and Nuclei": 8,
+    "Current Electricity": 26,
+    "Dual Nature of Matter": 1,
+    "Electrostatics": 26,
+    "Gravitation": 7,
+    "Kinematics": 7,
+    "Kinetic Theory": 1,
+    "Laws of Motion": 22,
+    "Magnetism and Matter": 1,
+    "Moving Charges and Magnetism": 3,
+    "Oscillations": 9,
+    "Properties of Matter": 15,
+    "Ray Optics": 18,
+    "Rotational Mechanics": 13,
+    "Semiconductor Electronics": 5,
+    "Thermal Properties of Matter": 7,
+    "Units and Measurements": 7,
+    "Wave Optics": 3,
+    "Waves": 27,
+    "Work, Energy and Power": 25
+  },
+  "validation": {
+    "is_valid": true,
+    "issues": []
+  },
+  "visual_interpretation_model": "codex-default",
+  "visual_interpretation_provider": "codex",
+  "visual_warnings": []
+}

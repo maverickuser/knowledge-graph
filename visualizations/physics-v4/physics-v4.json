@@ -1,0 +1,1583 @@
+{
+  "concepts": [
+    {
+      "aliases": [
+        "atoms and nuclei"
+      ],
+      "community_id": "community-73897c41e20c",
+      "community_theme": "Atoms and Nuclei",
+      "definition": "Physics topic extracted from JEE2026-01-22-AM-Q36.",
+      "id": "concept-2e78ae4503d8",
+      "incoming_relations": [
+        "Dual Nature of Matter",
+        "apply energy conservation",
+        "solve atoms and nuclei problems"
+      ],
+      "name": "Atoms and Nuclei",
+      "outgoing_relations": [
+        "Semiconductor Electronics"
+      ],
+      "source_refs": [
+        "evidence-9469aa243e53",
+        "evidence-3f8b0b9039f0",
+        "source-b63d36be097f",
+        "evidence-56953cd4cd80",
+        "evidence-912afdc16ac3",
+        "evidence-42527ca8eb7b",
+        "evidence-59b3ccab526a",
+        "evidence-cda7aebadd73",
+        "evidence-061383ba1c3f",
+        "evidence-8ecb13cef4d2"
+      ]
+    },
+    {
+      "aliases": [
+        "current electricity"
+      ],
+      "community_id": "community-2ab9ab9f6fc6",
+      "community_theme": "Current Electricity",
+      "definition": "Physics topic extracted from JEE2026-01-22-AM-Q31.",
+      "id": "concept-1bcfe7910779",
+      "incoming_relations": [
+        "Electrostatics",
+        "apply electromagnetic induction",
+        "apply thermodynamics relations",
+        "reduce circuit equivalents",
+        "solve current electricity problems"
+      ],
+      "name": "Current Electricity",
+      "outgoing_relations": [
+        "Moving Charges and Magnetism"
+      ],
+      "source_refs": [
+        "evidence-4d16743bde2f",
+        "evidence-1a60b01a9243",
+        "evidence-cc612566ac60",
+        "source-b63d36be097f",
+        "evidence-7ba601821ba0",
+        "evidence-9bf3b8df7103",
+        "evidence-0309e56c78d6",
+        "evidence-519daee33b3a",
+        "evidence-109dc988a06c",
+        "evidence-ae71268a1213",
+        "evidence-a0d5be6410d6",
+        "evidence-20aea3f2cfe3",
+        "evidence-3104ff4ef63a",
+        "evidence-dccc5260c421",
+        "evidence-e8e4e5bd88b9",
+        "evidence-2579e98846c6",
+        "evidence-9477f67d7837",
+        "evidence-28e73a40d63b",
+        "evidence-2af6f053c7d3",
+        "evidence-3f016b55d5d0",
+        "evidence-65798cad7b42",
+        "evidence-3cd923ca3dac",
+        "evidence-bacc5de43211",
+        "evidence-c8343be1d8a5",
+        "evidence-fa61f472fb4d",
+        "evidence-411c0f2a1d66",
+        "evidence-eb3cf7074cbe",
+        "evidence-a821a44f02c9",
+        "evidence-3ca099ecaffb"
+      ]
+    },
+    {
+      "aliases": [
+        "dual nature of matter"
+      ],
+      "community_id": "community-454fb0f45de6",
+      "community_theme": "Dual Nature of Matter",
+      "definition": "Physics topic extracted from JEE2026-01-28-PM-Q36.",
+      "id": "concept-c6ba79191202",
+      "incoming_relations": [
+        "solve dual nature of matter problems"
+      ],
+      "name": "Dual Nature of Matter",
+      "outgoing_relations": [
+        "Atoms and Nuclei"
+      ],
+      "source_refs": [
+        "evidence-6f8f1a1d0796",
+        "evidence-f545b7191890",
+        "evidence-b279877d6166",
+        "source-b63d36be097f"
+      ]
+    },
+    {
+      "aliases": [
+        "electrostatics"
+      ],
+      "community_id": "community-d35518ce3682",
+      "community_theme": "Electrostatics",
+      "definition": "Physics topic extracted from JEE2026-01-22-AM-Q28.",
+      "id": "concept-bb50705c2191",
+      "incoming_relations": [
+        "apply electromagnetic induction",
+        "resolve electric field vectors",
+        "solve electrostatics problems"
+      ],
+      "name": "Electrostatics",
+      "outgoing_relations": [
+        "Current Electricity"
+      ],
+      "source_refs": [
+        "evidence-08c4ed8d8cad",
+        "evidence-3be01d56988c",
+        "evidence-484e4ffab433",
+        "source-b63d36be097f",
+        "evidence-a39f73b529bc",
+        "evidence-02b97c9c41da",
+        "evidence-db6bae954878",
+        "evidence-5219f0f9997f",
+        "evidence-1fc3716b3a8d",
+        "evidence-e29fc314ca41",
+        "evidence-a7177400cb23",
+        "evidence-3e4ba468e07c",
+        "evidence-a32aa2859ee5",
+        "evidence-894bc7aa7271",
+        "evidence-2f4ca3cb610e",
+        "evidence-a73bbee12922",
+        "evidence-ac16303c408b",
+        "evidence-a9300306aed3",
+        "evidence-5abb61ed201b",
+        "evidence-423df6273323",
+        "evidence-2823b662097f",
+        "evidence-6c2cf21bf6d9",
+        "evidence-d6fd42900db5",
+        "evidence-02db3911a70f",
+        "evidence-15f1a96ab487",
+        "evidence-0c2e614d1a28",
+        "evidence-0d1e669ec533",
+        "evidence-724f692b45f1",
+        "evidence-757b90cfef74"
+      ]
+    },
+    {
+      "aliases": [
+        "gravitation"
+      ],
+      "community_id": "community-d604cdff9635",
+      "community_theme": "Gravitation",
+      "definition": "Physics topic extracted from JEE2026-01-22-AM-Q30.",
+      "id": "concept-653583c53b82",
+      "incoming_relations": [
+        "Laws of Motion",
+        "apply energy conservation",
+        "use gravitation scaling relations"
+      ],
+      "name": "Gravitation",
+      "outgoing_relations": [],
+      "source_refs": [
+        "evidence-f15fb8d84f36",
+        "evidence-2fa6c4b29043",
+        "evidence-e294075a4a33",
+        "source-b63d36be097f",
+        "evidence-8b1eedca05c5",
+        "evidence-df2f9fa5e37a",
+        "evidence-ece16c39d3b7",
+        "evidence-08bbcb06f7e4",
+        "evidence-74154547438e",
+        "evidence-4b71f54ecdcd"
+      ]
+    },
+    {
+      "aliases": [
+        "kinematics"
+      ],
+      "community_id": "community-740e12e87cfb",
+      "community_theme": "Kinematics",
+      "definition": "Physics topic extracted from JEE2026-01-22-AM-Q32.",
+      "id": "concept-fa3d2e3ced4f",
+      "incoming_relations": [
+        "Units and Measurements",
+        "solve kinematics problems"
+      ],
+      "name": "Kinematics",
+      "outgoing_relations": [
+        "Laws of Motion"
+      ],
+      "source_refs": [
+        "evidence-9e5aa93fa660",
+        "evidence-402c622bed1b",
+        "evidence-1c287b70c21b",
+        "source-b63d36be097f",
+        "evidence-e2f819f85b90",
+        "evidence-6a1dea8ddab4",
+        "evidence-dccc260afcff",
+        "evidence-bc2a83341558",
+        "evidence-4633b45a33fd",
+        "evidence-0ad0b309821d"
+      ]
+    },
+    {
+      "aliases": [
+        "kinetic theory"
+      ],
+      "community_id": "community-21b2defdafeb",
+      "community_theme": "Kinetic Theory",
+      "definition": "Physics topic extracted from JEE2026-01-21-PM-Q30.",
+      "id": "concept-1484007917ca",
+      "incoming_relations": [
+        "solve kinetic theory problems"
+      ],
+      "name": "Kinetic Theory",
+      "outgoing_relations": [],
+      "source_refs": [
+        "evidence-f1b473f1abde",
+        "evidence-80bc756e5757",
+        "evidence-776fc8cd9a3b",
+        "source-b63d36be097f"
+      ]
+    },
+    {
+      "aliases": [
+        "laws of motion"
+      ],
+      "community_id": "community-3def959223cc",
+      "community_theme": "Laws of Motion",
+      "definition": "Physics topic extracted from JEE2026-01-22-AM-Q33.",
+      "id": "concept-1684c474e3a5",
+      "incoming_relations": [
+        "Kinematics",
+        "apply energy conservation",
+        "apply fluid pressure relations",
+        "solve laws of motion problems"
+      ],
+      "name": "Laws of Motion",
+      "outgoing_relations": [
+        "Gravitation",
+        "Oscillations",
+        "Properties of Matter",
+        "Work, Energy and Power"
+      ],
+      "source_refs": [
+        "evidence-eb0af293a5fa",
+        "evidence-83211755bbe8",
+        "evidence-d48ee233778e",
+        "source-b63d36be097f",
+        "evidence-7d4010037b73",
+        "evidence-b6f92fc3f668",
+        "evidence-3c242c00aab2",
+        "evidence-d02e51a43cd0",
+        "evidence-3a5006d8bae4",
+        "evidence-f9cd5f9acd30",
+        "evidence-cedd5eb0eeee",
+        "evidence-6716cbe7cb9a",
+        "evidence-48e73f261b96",
+        "evidence-da196e093385",
+        "evidence-a3530dee1870",
+        "evidence-ea62127c7cf8",
+        "evidence-39812ba2958f",
+        "evidence-e913987f13ed",
+        "evidence-50e726ade11b",
+        "evidence-b4e122d5f2b7",
+        "evidence-138728e64816",
+        "evidence-103216dd8877",
+        "evidence-560ebadc8c68",
+        "evidence-3ab1de769f4a",
+        "evidence-2078f9dc2fe7"
+      ]
+    },
+    {
+      "aliases": [
+        "magnetism and matter"
+      ],
+      "community_id": "community-213f676ad09f",
+      "community_theme": "Magnetism and Matter",
+      "definition": "Physics topic extracted from JEE2026-01-23-AM-Q45.",
+      "id": "concept-86005cd5ccbb",
+      "incoming_relations": [
+        "Moving Charges and Magnetism",
+        "solve magnetism and matter problems"
+      ],
+      "name": "Magnetism and Matter",
+      "outgoing_relations": [],
+      "source_refs": [
+        "evidence-7921e5b93009",
+        "evidence-fdf00049ff1f",
+        "evidence-5e93891fc563",
+        "source-b63d36be097f"
+      ]
+    },
+    {
+      "aliases": [
+        "moving charges and magnetism"
+      ],
+      "community_id": "community-99139d82367b",
+      "community_theme": "Moving Charges and Magnetism",
+      "definition": "Physics topic extracted from JEE2026-01-22-PM-Q43.",
+      "id": "concept-4b034b894e3d",
+      "incoming_relations": [
+        "Current Electricity",
+        "resolve electric field vectors"
+      ],
+      "name": "Moving Charges and Magnetism",
+      "outgoing_relations": [
+        "Magnetism and Matter"
+      ],
+      "source_refs": [
+        "evidence-61d9601dd877",
+        "evidence-48b69c592341",
+        "evidence-3e5eb60ecda7",
+        "source-b63d36be097f",
+        "evidence-b1b53ab2c938",
+        "evidence-2f87c770d21d"
+      ]
+    },
+    {
+      "aliases": [
+        "oscillations"
+      ],
+      "community_id": "community-0448652a1851",
+      "community_theme": "Oscillations",
+      "definition": "Physics topic extracted from JEE2026-01-22-AM-Q44.",
+      "id": "concept-95a43f160c95",
+      "incoming_relations": [
+        "Laws of Motion",
+        "apply energy conservation",
+        "apply thermodynamics relations",
+        "solve oscillations problems"
+      ],
+      "name": "Oscillations",
+      "outgoing_relations": [
+        "Waves"
+      ],
+      "source_refs": [
+        "evidence-5eecf6df222b",
+        "evidence-2dc25775f5b8",
+        "evidence-182338502b4d",
+        "evidence-d7ebd3ee08dd",
+        "source-b63d36be097f",
+        "evidence-ca613488bd9a",
+        "evidence-c3cfed5ab3b0",
+        "evidence-e692541e397b",
+        "evidence-4d66bdd8e981",
+        "evidence-be9cd15bf131",
+        "evidence-5af56da731b6",
+        "evidence-9a55914e0797",
+        "evidence-67b900ea41bd"
+      ]
+    },
+    {
+      "aliases": [
+        "properties of matter"
+      ],
+      "community_id": "community-69d97bbad3f5",
+      "community_theme": "Properties of Matter",
+      "definition": "Physics topic extracted from JEE2026-01-22-AM-Q29.",
+      "id": "concept-f3e27fbe3889",
+      "incoming_relations": [
+        "Laws of Motion",
+        "apply fluid pressure relations",
+        "solve properties of matter problems"
+      ],
+      "name": "Properties of Matter",
+      "outgoing_relations": [],
+      "source_refs": [
+        "evidence-cc364b3dc0e3",
+        "evidence-bb4f0ca402e8",
+        "evidence-f4f529ba71fa",
+        "evidence-c6707df88b39",
+        "source-b63d36be097f",
+        "evidence-eee7934a77b5",
+        "evidence-40bc84223d8d",
+        "evidence-e21ff2ce1879",
+        "evidence-3844ea7e5e9c",
+        "evidence-f25027261fc9",
+        "evidence-93c90d081342",
+        "evidence-3c9945832e6a",
+        "evidence-f02a3fc50810",
+        "evidence-61755e99ef50",
+        "evidence-db8c05ede346",
+        "evidence-46104e661581",
+        "evidence-5a23ee2c65d8",
+        "evidence-f3743f995e56",
+        "evidence-b31e3966b282"
+      ]
+    },
+    {
+      "aliases": [
+        "ray optics"
+      ],
+      "community_id": "community-110942ef6cb0",
+      "community_theme": "Ray Optics",
+      "definition": "Physics topic extracted from JEE2026-01-22-AM-Q39.",
+      "id": "concept-35f02eca4ec3",
+      "incoming_relations": [
+        "apply Snell's law",
+        "solve ray optics problems"
+      ],
+      "name": "Ray Optics",
+      "outgoing_relations": [
+        "Wave Optics"
+      ],
+      "source_refs": [
+        "evidence-c626f1a92787",
+        "evidence-80d949151c90",
+        "evidence-d6ded3d4387e",
+        "source-b63d36be097f",
+        "evidence-291d1d0c971e",
+        "evidence-74e2ce0de233",
+        "evidence-e73fee88fd94",
+        "evidence-e0b87dd81065",
+        "evidence-67ffaa3bdd38",
+        "evidence-cca6c20ba9ef",
+        "evidence-150dd64d70e2",
+        "evidence-18ea11643293",
+        "evidence-051753ed74b4",
+        "evidence-c2a07b9ade5d",
+        "evidence-fe19187098ac",
+        "evidence-7a20048b0703",
+        "evidence-07bdd3241bdd",
+        "evidence-e915b4ae1af1",
+        "evidence-5d3726c89df3",
+        "evidence-fc162531d405",
+        "evidence-96a89cf763a7"
+      ]
+    },
+    {
+      "aliases": [
+        "rotational mechanics"
+      ],
+      "community_id": "community-74f347b5866a",
+      "community_theme": "Rotational Mechanics",
+      "definition": "Physics topic extracted from JEE2026-01-22-AM-Q26.",
+      "id": "concept-4a33faddd0c3",
+      "incoming_relations": [
+        "Work, Energy and Power",
+        "solve rotational mechanics problems"
+      ],
+      "name": "Rotational Mechanics",
+      "outgoing_relations": [],
+      "source_refs": [
+        "evidence-bf5d3936531f",
+        "evidence-ba4d7b6d6306",
+        "evidence-91dd6f09e0c7",
+        "source-b63d36be097f",
+        "evidence-e14dd013bc0c",
+        "evidence-de45cd3b7056",
+        "evidence-ff750ef1507e",
+        "evidence-8650efaa4368",
+        "evidence-fee306409aa9",
+        "evidence-5d6850269add",
+        "evidence-bf54fbb18d54",
+        "evidence-7699ea64cbe5",
+        "evidence-69036ad7f466",
+        "evidence-bc797e2ba45b",
+        "evidence-937d7d50274d",
+        "evidence-596e71be5f86"
+      ]
+    },
+    {
+      "aliases": [
+        "semiconductor electronics"
+      ],
+      "community_id": "community-d4e2c92da958",
+      "community_theme": "Semiconductor Electronics",
+      "definition": "Physics topic extracted from JEE2026-01-22-AM-Q34.",
+      "id": "concept-907092803460",
+      "incoming_relations": [
+        "Atoms and Nuclei",
+        "solve semiconductor electronics problems"
+      ],
+      "name": "Semiconductor Electronics",
+      "outgoing_relations": [],
+      "source_refs": [
+        "evidence-0cc2eb470ad0",
+        "evidence-dfb322db9cfc",
+        "evidence-eec97cc104dd",
+        "source-b63d36be097f",
+        "evidence-00df7917b8f0",
+        "evidence-08305bfd1d7e",
+        "evidence-d4641fea1355",
+        "evidence-c78844606ecf"
+      ]
+    },
+    {
+      "aliases": [
+        "thermal properties of matter"
+      ],
+      "community_id": "community-e8bc6594cc2c",
+      "community_theme": "Thermal Properties of Matter",
+      "definition": "Physics topic extracted from JEE2026-01-22-AM-Q41.",
+      "id": "concept-8f91937fea25",
+      "incoming_relations": [
+        "apply thermodynamics relations",
+        "use bridge balance relation"
+      ],
+      "name": "Thermal Properties of Matter",
+      "outgoing_relations": [],
+      "source_refs": [
+        "evidence-e35b0153e7d4",
+        "evidence-a07fcb5f7206",
+        "evidence-a733bdf8764a",
+        "source-b63d36be097f",
+        "evidence-92a451b5f461",
+        "evidence-dd1cd052818c",
+        "evidence-dfcf2c9bb775",
+        "evidence-a42734075f40",
+        "evidence-3c8964c51b0c",
+        "evidence-58dd6c0baf40"
+      ]
+    },
+    {
+      "aliases": [
+        "units and measurements"
+      ],
+      "community_id": "community-373b02378843",
+      "community_theme": "Units and Measurements",
+      "definition": "Physics topic extracted from JEE2026-01-22-AM-Q38.",
+      "id": "concept-f273e9e923e4",
+      "incoming_relations": [
+        "apply electromagnetic induction",
+        "solve units and measurements problems"
+      ],
+      "name": "Units and Measurements",
+      "outgoing_relations": [
+        "Kinematics"
+      ],
+      "source_refs": [
+        "evidence-e1dfb0c08585",
+        "evidence-8f69a2adca10",
+        "evidence-40b2d4cf1a46",
+        "source-b63d36be097f",
+        "evidence-03c04c4c7fa6",
+        "evidence-e8f91a65cac1",
+        "evidence-f2a7fa1464fc",
+        "evidence-e9c6277891dd",
+        "evidence-48bae0f89f0a",
+        "evidence-d7c240dcafee"
+      ]
+    },
+    {
+      "aliases": [
+        "wave optics"
+      ],
+      "community_id": "community-e2ce875009fb",
+      "community_theme": "Wave Optics",
+      "definition": "Physics topic extracted from JEE2026-01-21-AM-Q36.",
+      "id": "concept-642cca831502",
+      "incoming_relations": [
+        "Ray Optics",
+        "Waves",
+        "solve wave optics problems"
+      ],
+      "name": "Wave Optics",
+      "outgoing_relations": [],
+      "source_refs": [
+        "evidence-1d82f2594d6a",
+        "evidence-b872ae32032c",
+        "evidence-4a6658b0b49d",
+        "source-b63d36be097f",
+        "evidence-6981993b761e",
+        "evidence-92a2e297fe97"
+      ]
+    },
+    {
+      "aliases": [
+        "waves"
+      ],
+      "community_id": "community-031b2a0fb811",
+      "community_theme": "Waves",
+      "definition": "Physics topic extracted from JEE2026-01-22-AM-Q46.",
+      "id": "concept-eb81ba5ff779",
+      "incoming_relations": [
+        "Oscillations",
+        "apply electromagnetic induction",
+        "resolve electric field vectors",
+        "solve waves problems"
+      ],
+      "name": "Waves",
+      "outgoing_relations": [
+        "Wave Optics"
+      ],
+      "source_refs": [
+        "evidence-eae54c2cd52d",
+        "evidence-83d4f8fe2932",
+        "evidence-79e8a7d3a3ef",
+        "source-b63d36be097f",
+        "evidence-60ecfc06f44d",
+        "evidence-62841585edd1",
+        "evidence-218416cc6960",
+        "evidence-8a1845005819",
+        "evidence-4854d8f7cd7d",
+        "evidence-0896c5ef979e",
+        "evidence-bb5754ade3bc",
+        "evidence-e16bd497f2f8",
+        "evidence-daf640269601",
+        "evidence-e60c382be146",
+        "evidence-d741895379cf",
+        "evidence-6b292b1cf129",
+        "evidence-c4e29eec29c4",
+        "evidence-b253b393d848",
+        "evidence-843f10102b54",
+        "evidence-267a9e3310a0",
+        "evidence-f74d9c5b3c96",
+        "evidence-16b0cea0e459",
+        "evidence-3a23373a8023",
+        "evidence-95d043878a0a",
+        "evidence-4f36e1daad02",
+        "evidence-1ac5194c228c",
+        "evidence-d741453fff99",
+        "evidence-75209cfc62e2",
+        "evidence-1fe2ad44e025",
+        "evidence-cbdab6a71d34"
+      ]
+    },
+    {
+      "aliases": [
+        "work energy and power",
+        "work, energy and power"
+      ],
+      "community_id": "community-86a69ba4573f",
+      "community_theme": "Work, Energy and Power",
+      "definition": "Physics topic extracted from JEE2026-01-22-AM-Q27.",
+      "id": "concept-cc55ba742b91",
+      "incoming_relations": [
+        "Laws of Motion",
+        "apply energy conservation",
+        "apply thermodynamics relations",
+        "reduce circuit equivalents",
+        "resolve electric field vectors",
+        "solve work, energy and power problems"
+      ],
+      "name": "Work, Energy and Power",
+      "outgoing_relations": [
+        "Rotational Mechanics"
+      ],
+      "source_refs": [
+        "evidence-ce11ed7dd343",
+        "evidence-849a16184e72",
+        "evidence-3723bc0d7686",
+        "source-b63d36be097f",
+        "evidence-0e289f7b08ec",
+        "evidence-25427b809ee1",
+        "evidence-6ba96941d7d6",
+        "evidence-79babe64825e",
+        "evidence-c94e7cf8fbc3",
+        "evidence-a54d413f13b2",
+        "evidence-e33d26f10136",
+        "evidence-ccb5b2b23140",
+        "evidence-e560a2195660",
+        "evidence-8757bd11afa9",
+        "evidence-9dd2326e0333",
+        "evidence-b08e2e09d93e",
+        "evidence-2f635bc10f76",
+        "evidence-961169e8802b",
+        "evidence-cedc48a766ba",
+        "evidence-187ece2c023c",
+        "evidence-ad565edbdbef",
+        "evidence-00614588ad33",
+        "evidence-3b48d9a33145",
+        "evidence-473e1717ee75",
+        "evidence-7e790611e9b9",
+        "evidence-18f88caee0c4",
+        "evidence-bcc02c9ee292",
+        "evidence-984b107fb5f6"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-031b2a0fb811"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-0448652a1851"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-110942ef6cb0"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-213f676ad09f"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-21b2defdafeb"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-2ab9ab9f6fc6"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-373b02378843"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-3def959223cc"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-454fb0f45de6"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-69d97bbad3f5"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-73897c41e20c"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-740e12e87cfb"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-74f347b5866a"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-86a69ba4573f"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-99139d82367b"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-d35518ce3682"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-d4e2c92da958"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-d604cdff9635"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-e2ce875009fb"
+    },
+    {
+      "count": 1,
+      "kind": "hierarchy",
+      "label": "parent",
+      "source": "community-393d4478ba4d",
+      "strength": 1.0,
+      "target": "community-e8bc6594cc2c"
+    },
+    {
+      "count": 2,
+      "kind": "prerequisite",
+      "label": "2 prerequisites",
+      "source": "community-d35518ce3682",
+      "strength": 0.9,
+      "target": "community-031b2a0fb811"
+    },
+    {
+      "count": 2,
+      "kind": "prerequisite",
+      "label": "2 prerequisites",
+      "source": "community-d35518ce3682",
+      "strength": 0.8500000000000001,
+      "target": "community-2ab9ab9f6fc6"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-69d97bbad3f5",
+      "strength": 0.9,
+      "target": "community-3def959223cc"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-86a69ba4573f",
+      "strength": 0.9,
+      "target": "community-2ab9ab9f6fc6"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-d35518ce3682",
+      "strength": 0.9,
+      "target": "community-373b02378843"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-d35518ce3682",
+      "strength": 0.9,
+      "target": "community-86a69ba4573f"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-d35518ce3682",
+      "strength": 0.9,
+      "target": "community-99139d82367b"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-d604cdff9635",
+      "strength": 0.9,
+      "target": "community-0448652a1851"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-d604cdff9635",
+      "strength": 0.9,
+      "target": "community-3def959223cc"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-d604cdff9635",
+      "strength": 0.9,
+      "target": "community-73897c41e20c"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-d604cdff9635",
+      "strength": 0.9,
+      "target": "community-86a69ba4573f"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-e8bc6594cc2c",
+      "strength": 0.9,
+      "target": "community-0448652a1851"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-e8bc6594cc2c",
+      "strength": 0.9,
+      "target": "community-2ab9ab9f6fc6"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-e8bc6594cc2c",
+      "strength": 0.9,
+      "target": "community-86a69ba4573f"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-031b2a0fb811",
+      "strength": 0.8,
+      "target": "community-e2ce875009fb"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-0448652a1851",
+      "strength": 0.8,
+      "target": "community-031b2a0fb811"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-110942ef6cb0",
+      "strength": 0.8,
+      "target": "community-e2ce875009fb"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-2ab9ab9f6fc6",
+      "strength": 0.8,
+      "target": "community-99139d82367b"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-373b02378843",
+      "strength": 0.8,
+      "target": "community-740e12e87cfb"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-3def959223cc",
+      "strength": 0.8,
+      "target": "community-0448652a1851"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-3def959223cc",
+      "strength": 0.8,
+      "target": "community-69d97bbad3f5"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-3def959223cc",
+      "strength": 0.8,
+      "target": "community-86a69ba4573f"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-3def959223cc",
+      "strength": 0.8,
+      "target": "community-d604cdff9635"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-454fb0f45de6",
+      "strength": 0.8,
+      "target": "community-73897c41e20c"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-73897c41e20c",
+      "strength": 0.8,
+      "target": "community-d4e2c92da958"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-740e12e87cfb",
+      "strength": 0.8,
+      "target": "community-3def959223cc"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-86a69ba4573f",
+      "strength": 0.8,
+      "target": "community-74f347b5866a"
+    },
+    {
+      "count": 1,
+      "kind": "prerequisite",
+      "label": "1 prerequisite",
+      "source": "community-99139d82367b",
+      "strength": 0.8,
+      "target": "community-213f676ad09f"
+    }
+  ],
+  "matrix_cells": [
+    {
+      "count": 2,
+      "source_id": "community-d35518ce3682",
+      "strength": 0.9,
+      "target_id": "community-031b2a0fb811"
+    },
+    {
+      "count": 2,
+      "source_id": "community-d35518ce3682",
+      "strength": 0.8500000000000001,
+      "target_id": "community-2ab9ab9f6fc6"
+    },
+    {
+      "count": 1,
+      "source_id": "community-69d97bbad3f5",
+      "strength": 0.9,
+      "target_id": "community-3def959223cc"
+    },
+    {
+      "count": 1,
+      "source_id": "community-86a69ba4573f",
+      "strength": 0.9,
+      "target_id": "community-2ab9ab9f6fc6"
+    },
+    {
+      "count": 1,
+      "source_id": "community-d35518ce3682",
+      "strength": 0.9,
+      "target_id": "community-373b02378843"
+    },
+    {
+      "count": 1,
+      "source_id": "community-d35518ce3682",
+      "strength": 0.9,
+      "target_id": "community-86a69ba4573f"
+    },
+    {
+      "count": 1,
+      "source_id": "community-d35518ce3682",
+      "strength": 0.9,
+      "target_id": "community-99139d82367b"
+    },
+    {
+      "count": 1,
+      "source_id": "community-d604cdff9635",
+      "strength": 0.9,
+      "target_id": "community-0448652a1851"
+    },
+    {
+      "count": 1,
+      "source_id": "community-d604cdff9635",
+      "strength": 0.9,
+      "target_id": "community-3def959223cc"
+    },
+    {
+      "count": 1,
+      "source_id": "community-d604cdff9635",
+      "strength": 0.9,
+      "target_id": "community-73897c41e20c"
+    },
+    {
+      "count": 1,
+      "source_id": "community-d604cdff9635",
+      "strength": 0.9,
+      "target_id": "community-86a69ba4573f"
+    },
+    {
+      "count": 1,
+      "source_id": "community-e8bc6594cc2c",
+      "strength": 0.9,
+      "target_id": "community-0448652a1851"
+    },
+    {
+      "count": 1,
+      "source_id": "community-e8bc6594cc2c",
+      "strength": 0.9,
+      "target_id": "community-2ab9ab9f6fc6"
+    },
+    {
+      "count": 1,
+      "source_id": "community-e8bc6594cc2c",
+      "strength": 0.9,
+      "target_id": "community-86a69ba4573f"
+    },
+    {
+      "count": 1,
+      "source_id": "community-031b2a0fb811",
+      "strength": 0.8,
+      "target_id": "community-e2ce875009fb"
+    },
+    {
+      "count": 1,
+      "source_id": "community-0448652a1851",
+      "strength": 0.8,
+      "target_id": "community-031b2a0fb811"
+    },
+    {
+      "count": 1,
+      "source_id": "community-110942ef6cb0",
+      "strength": 0.8,
+      "target_id": "community-e2ce875009fb"
+    },
+    {
+      "count": 1,
+      "source_id": "community-2ab9ab9f6fc6",
+      "strength": 0.8,
+      "target_id": "community-99139d82367b"
+    },
+    {
+      "count": 1,
+      "source_id": "community-373b02378843",
+      "strength": 0.8,
+      "target_id": "community-740e12e87cfb"
+    },
+    {
+      "count": 1,
+      "source_id": "community-3def959223cc",
+      "strength": 0.8,
+      "target_id": "community-0448652a1851"
+    },
+    {
+      "count": 1,
+      "source_id": "community-3def959223cc",
+      "strength": 0.8,
+      "target_id": "community-69d97bbad3f5"
+    },
+    {
+      "count": 1,
+      "source_id": "community-3def959223cc",
+      "strength": 0.8,
+      "target_id": "community-86a69ba4573f"
+    },
+    {
+      "count": 1,
+      "source_id": "community-3def959223cc",
+      "strength": 0.8,
+      "target_id": "community-d604cdff9635"
+    },
+    {
+      "count": 1,
+      "source_id": "community-454fb0f45de6",
+      "strength": 0.8,
+      "target_id": "community-73897c41e20c"
+    },
+    {
+      "count": 1,
+      "source_id": "community-73897c41e20c",
+      "strength": 0.8,
+      "target_id": "community-d4e2c92da958"
+    },
+    {
+      "count": 1,
+      "source_id": "community-740e12e87cfb",
+      "strength": 0.8,
+      "target_id": "community-3def959223cc"
+    },
+    {
+      "count": 1,
+      "source_id": "community-86a69ba4573f",
+      "strength": 0.8,
+      "target_id": "community-74f347b5866a"
+    },
+    {
+      "count": 1,
+      "source_id": "community-99139d82367b",
+      "strength": 0.8,
+      "target_id": "community-213f676ad09f"
+    }
+  ],
+  "nodes": [
+    {
+      "concept_count": 20,
+      "depth": 0,
+      "height": 88,
+      "id": "community-393d4478ba4d",
+      "label": "Physics",
+      "level": "subject",
+      "member_count": 324,
+      "misconception_count": 278,
+      "skill_count": 26,
+      "summary": "Theme: Physics. Concepts: Atoms and Nuclei, Current Electricity, Dual Nature of Matter, Electrostatics, Gravitation. Prerequisites: Kinet...",
+      "theme": "Physics",
+      "width": 240,
+      "x": 2955.0,
+      "y": 120
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-73897c41e20c",
+      "label": "Atoms and Nuclei",
+      "level": "chapter",
+      "member_count": 19,
+      "misconception_count": 16,
+      "skill_count": 2,
+      "summary": "Theme: Atoms and Nuclei. Concepts: Atoms and Nuclei, apply energy conservation, solve atoms and nuclei problems. Prerequisites: Atoms and...",
+      "theme": "Atoms and Nuclei",
+      "width": 240,
+      "x": 200.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-2ab9ab9f6fc6",
+      "label": "Current Electricity",
+      "level": "chapter",
+      "member_count": 56,
+      "misconception_count": 51,
+      "skill_count": 4,
+      "summary": "Theme: Current Electricity. Concepts: Current Electricity, apply electromagnetic induction, apply thermodynamics relations, reduce circui...",
+      "theme": "Current Electricity",
+      "width": 240,
+      "x": 490.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-454fb0f45de6",
+      "label": "Dual Nature of Matter",
+      "level": "chapter",
+      "member_count": 3,
+      "misconception_count": 1,
+      "skill_count": 1,
+      "summary": "Theme: Dual Nature of Matter. Concepts: Dual Nature of Matter, solve dual nature of matter problems. Prerequisites: Dual Nature of Matter...",
+      "theme": "Dual Nature of Matter",
+      "width": 240,
+      "x": 780.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-d35518ce3682",
+      "label": "Electrostatics",
+      "level": "chapter",
+      "member_count": 52,
+      "misconception_count": 48,
+      "skill_count": 3,
+      "summary": "Theme: Electrostatics. Concepts: Electrostatics, apply electromagnetic induction, resolve electric field vectors, solve electrostatics pr...",
+      "theme": "Electrostatics",
+      "width": 240,
+      "x": 1070.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-d604cdff9635",
+      "label": "Gravitation",
+      "level": "chapter",
+      "member_count": 17,
+      "misconception_count": 14,
+      "skill_count": 2,
+      "summary": "Theme: Gravitation. Concepts: Gravitation, apply energy conservation, use gravitation scaling relations. Prerequisites: Gravitation, appl...",
+      "theme": "Gravitation",
+      "width": 240,
+      "x": 1360.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-740e12e87cfb",
+      "label": "Kinematics",
+      "level": "chapter",
+      "member_count": 9,
+      "misconception_count": 7,
+      "skill_count": 1,
+      "summary": "Theme: Kinematics. Concepts: Kinematics, solve kinematics problems. Prerequisites: Kinematics, solve kinematics problems. Misconceptions:...",
+      "theme": "Kinematics",
+      "width": 240,
+      "x": 1650.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-21b2defdafeb",
+      "label": "Kinetic Theory",
+      "level": "chapter",
+      "member_count": 3,
+      "misconception_count": 1,
+      "skill_count": 1,
+      "summary": "Theme: Kinetic Theory. Concepts: Kinetic Theory, solve kinetic theory problems. Prerequisites: Kinetic Theory, solve kinetic theory probl...",
+      "theme": "Kinetic Theory",
+      "width": 240,
+      "x": 1940.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-3def959223cc",
+      "label": "Laws of Motion",
+      "level": "chapter",
+      "member_count": 35,
+      "misconception_count": 31,
+      "skill_count": 3,
+      "summary": "Theme: Laws of Motion. Concepts: Laws of Motion, apply energy conservation, apply fluid pressure relations, solve laws of motion problems...",
+      "theme": "Laws of Motion",
+      "width": 240,
+      "x": 2230.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-213f676ad09f",
+      "label": "Magnetism and Matter",
+      "level": "chapter",
+      "member_count": 3,
+      "misconception_count": 1,
+      "skill_count": 1,
+      "summary": "Theme: Magnetism and Matter. Concepts: Magnetism and Matter, solve magnetism and matter problems. Prerequisites: Magnetism and Matter, so...",
+      "theme": "Magnetism and Matter",
+      "width": 240,
+      "x": 2520.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-99139d82367b",
+      "label": "Moving Charges and Magnetism",
+      "level": "chapter",
+      "member_count": 10,
+      "misconception_count": 8,
+      "skill_count": 1,
+      "summary": "Theme: Moving Charges and Magnetism. Concepts: Moving Charges and Magnetism, resolve electric field vectors. Prerequisites: Moving Charge...",
+      "theme": "Moving Charges and Magnetism",
+      "width": 240,
+      "x": 2810.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-0448652a1851",
+      "label": "Oscillations",
+      "level": "chapter",
+      "member_count": 31,
+      "misconception_count": 27,
+      "skill_count": 3,
+      "summary": "Theme: Oscillations. Concepts: Oscillations, apply energy conservation, apply thermodynamics relations, solve oscillations problems. Prer...",
+      "theme": "Oscillations",
+      "width": 240,
+      "x": 3100.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-69d97bbad3f5",
+      "label": "Properties of Matter",
+      "level": "chapter",
+      "member_count": 27,
+      "misconception_count": 24,
+      "skill_count": 2,
+      "summary": "Theme: Properties of Matter. Concepts: Properties of Matter, apply fluid pressure relations, solve properties of matter problems. Prerequ...",
+      "theme": "Properties of Matter",
+      "width": 240,
+      "x": 3390.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-110942ef6cb0",
+      "label": "Ray Optics",
+      "level": "chapter",
+      "member_count": 22,
+      "misconception_count": 19,
+      "skill_count": 2,
+      "summary": "Theme: Ray Optics. Concepts: Ray Optics, apply Snell's law, solve ray optics problems. Prerequisites: Ray Optics, apply Snell's law, solv...",
+      "theme": "Ray Optics",
+      "width": 240,
+      "x": 3680.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-74f347b5866a",
+      "label": "Rotational Mechanics",
+      "level": "chapter",
+      "member_count": 15,
+      "misconception_count": 13,
+      "skill_count": 1,
+      "summary": "Theme: Rotational Mechanics. Concepts: Rotational Mechanics, solve rotational mechanics problems. Prerequisites: Rotational Mechanics, so...",
+      "theme": "Rotational Mechanics",
+      "width": 240,
+      "x": 3970.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-d4e2c92da958",
+      "label": "Semiconductor Electronics",
+      "level": "chapter",
+      "member_count": 7,
+      "misconception_count": 5,
+      "skill_count": 1,
+      "summary": "Theme: Semiconductor Electronics. Concepts: Semiconductor Electronics, solve semiconductor electronics problems. Prerequisites: Semicondu...",
+      "theme": "Semiconductor Electronics",
+      "width": 240,
+      "x": 4260.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-e8bc6594cc2c",
+      "label": "Thermal Properties of Matter",
+      "level": "chapter",
+      "member_count": 18,
+      "misconception_count": 15,
+      "skill_count": 2,
+      "summary": "Theme: Thermal Properties of Matter. Concepts: Thermal Properties of Matter, apply thermodynamics relations, use bridge balance relation....",
+      "theme": "Thermal Properties of Matter",
+      "width": 240,
+      "x": 4550.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-373b02378843",
+      "label": "Units and Measurements",
+      "level": "chapter",
+      "member_count": 16,
+      "misconception_count": 13,
+      "skill_count": 2,
+      "summary": "Theme: Units and Measurements. Concepts: Units and Measurements, apply electromagnetic induction, solve units and measurements problems....",
+      "theme": "Units and Measurements",
+      "width": 240,
+      "x": 4840.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-e2ce875009fb",
+      "label": "Wave Optics",
+      "level": "chapter",
+      "member_count": 5,
+      "misconception_count": 3,
+      "skill_count": 1,
+      "summary": "Theme: Wave Optics. Concepts: Wave Optics, solve wave optics problems. Prerequisites: Wave Optics, solve wave optics problems. Misconcept...",
+      "theme": "Wave Optics",
+      "width": 240,
+      "x": 5130.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-031b2a0fb811",
+      "label": "Waves",
+      "level": "chapter",
+      "member_count": 48,
+      "misconception_count": 44,
+      "skill_count": 3,
+      "summary": "Theme: Waves. Concepts: Waves, apply electromagnetic induction, resolve electric field vectors, solve waves problems. Prerequisites: Wave...",
+      "theme": "Waves",
+      "width": 240,
+      "x": 5420.0,
+      "y": 285
+    },
+    {
+      "concept_count": 1,
+      "depth": 1,
+      "height": 88,
+      "id": "community-86a69ba4573f",
+      "label": "Work, Energy and Power",
+      "level": "chapter",
+      "member_count": 61,
+      "misconception_count": 55,
+      "skill_count": 5,
+      "summary": "Theme: Work, Energy and Power. Concepts: Work, Energy and Power, apply energy conservation, apply thermodynamics relations, reduce circui...",
+      "theme": "Work, Energy and Power",
+      "width": 240,
+      "x": 5710.0,
+      "y": 285
+    }
+  ],
+  "summary": {
+    "community_count": 21,
+    "concept_count": 20,
+    "cross_community_prerequisite_count": 28,
+    "graph_version": "physics-v4",
+    "prerequisite_edge_count": 56,
+    "skill_count": 26,
+    "snapshot_id": "graph-a3056ddc5296"
+  }
+}

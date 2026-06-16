@@ -1,0 +1,28 @@
+[
+  {
+    "case_id": "supported_quadratic_factoring",
+    "assessment_item_id": "assessment-quadratic-001",
+    "student_response_id": "response-supported",
+    "response_text": "I factor quadratics by using the distributive law, but I made a sign error.",
+    "expected_abstained": false,
+    "expected_primary_gap": "skill:expand-expressions"
+  },
+  {
+    "case_id": "insufficient_grounding",
+    "assessment_item_id": "assessment-quadratic-001",
+    "student_response_id": "response-abstain",
+    "response_text": "I don't know.",
+    "expected_abstained": true,
+    "expected_abstention_reason": "insufficient_grounding",
+    "threshold": 0.8
+  },
+  {
+    "case_id": "visual_interpretation_required",
+    "assessment_item_id": "assessment-quadratic-001",
+    "student_response_id": "response-visual",
+    "response_text": "I selected option 2 from the diagram.",
+    "expected_abstained": true,
+    "expected_abstention_reason": "visual_interpretation_required",
+    "requires_visual_interpretation": true
+  }
+]

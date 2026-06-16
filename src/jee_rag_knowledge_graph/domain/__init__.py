@@ -1,0 +1,56 @@
+"""Domain model and validation primitives."""
+
+from .ids import stable_id, stable_slug
+from .models import (
+    AssessmentItem,
+    Community,
+    CommunitySummary,
+    Concept,
+    DiagnosticRecord,
+    EvidenceArtifact,
+    GraphSeedBundle,
+    GraphSnapshot,
+    Misconception,
+    MisconceptionMatch,
+    NormalizedDocument,
+    PrimaryGap,
+    PrerequisiteEdge,
+    Skill,
+    SourceDocument,
+    SyllabusNode,
+    VisualInterpretation,
+    DocumentSection,
+)
+from .validation import (
+    ValidationIssue,
+    ValidationReport,
+    validate_graph_seed_bundle,
+    validate_graph_snapshot,
+)
+
+__all__ = [
+    "AssessmentItem",
+    "Community",
+    "CommunitySummary",
+    "Concept",
+    "DiagnosticRecord",
+    "DocumentSection",
+    "EvidenceArtifact",
+    "GraphSeedBundle",
+    "GraphSnapshot",
+    "Misconception",
+    "MisconceptionMatch",
+    "NormalizedDocument",
+    "PrimaryGap",
+    "PrerequisiteEdge",
+    "Skill",
+    "SourceDocument",
+    "SyllabusNode",
+    "VisualInterpretation",
+    "ValidationIssue",
+    "ValidationReport",
+    "stable_id",
+    "stable_slug",
+    "validate_graph_seed_bundle",
+    "validate_graph_snapshot",
+]
