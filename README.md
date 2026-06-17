@@ -63,6 +63,13 @@ skills. Evidence authority is ranked as HC Verma, JEE syllabus, past papers,
 then NCERT. Past papers remain authoritative for assessment prompts and
 misconceptions.
 
+The graph builder seeds canonical JEE Physics coverage before adding
+question-derived links, so the persisted snapshot includes the hierarchy
+`Physics -> chapter -> topic -> subconcept/concept` across the syllabus. The
+DynamoDB row intentionally stores compact metadata and an S3 pointer; the full
+normalized graph JSON is stored in S3 and uses IDs for edges, with labels
+resolved through `syllabus_nodes`, `concepts`, `skills`, and `misconceptions`.
+
 For structured PYQ corpora, the build also renders each question region from
 its source PDF into `data/work/visual/<graph-version>/`. These crops preserve
 diagrams, graphs, circuits, equations, and visual answer options. Every crop is

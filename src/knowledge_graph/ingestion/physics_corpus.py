@@ -21,6 +21,7 @@ from ..domain.models import (
 )
 from .loaders import load_local_source
 from .normalize import normalize_source_document
+from .physics_syllabus import PHYSICS_SYLLABUS
 from .reference_corpus import SOURCE_AUTHORITY_WEIGHTS, load_reference_corpus
 
 
@@ -265,6 +266,150 @@ def _infer_misconception_patterns(pitfall: str) -> tuple[str, ...]:
     return tuple(sorted(patterns))
 
 
+def _append_syllabus_node(
+    syllabus_nodes: list[SyllabusNode],
+    seen_node_ids: set[str],
+    node: SyllabusNode,
+) -> None:
+    if node.id in seen_node_ids:
+        return
+    syllabus_nodes.append(node)
+    seen_node_ids.add(node.id)
+
+
+def _merge_concept(
+    concepts: dict[str, Concept],
+    *,
+    concept_id: str,
+    canonical_name: str,
+    definition: str,
+    source_refs: tuple[str, ...],
+    aliases: tuple[str, ...],
+    syllabus_node_id: str,
+    graph_version: str,
+) -> None:
+    concept = concepts.get(concept_id)
+    if concept is None:
+        concepts[concept_id] = Concept(
+            id=concept_id,
+            canonical_name=canonical_name,
+            definition=definition,
+            subject="Physics",
+            grade_band="JEE",
+            source_refs=source_refs,
+            aliases=aliases,
+            syllabus_node_ids=(syllabus_node_id,),
+            version=graph_version,
+        )
+        return
+
+    concepts[concept_id] = Concept(
+        id=concept.id,
+        canonical_name=concept.canonical_name,
+        definition=concept.definition,
+        subject=concept.subject,
+        grade_band=concept.grade_band,
+        source_refs=tuple(dict.fromkeys(concept.source_refs + source_refs)),
+        aliases=tuple(sorted(set(concept.aliases) | set(aliases))),
+        syllabus_node_ids=tuple(sorted(set(concept.syllabus_node_ids) | {syllabus_node_id})),
+        version=graph_version,
+    )
+
+
+def _seed_canonical_syllabus(
+    *,
+    root_node: SyllabusNode,
+    root_source_ref: str,
+    graph_version: str,
+    syllabus_nodes: list[SyllabusNode],
+    seen_node_ids: set[str],
+    concepts: dict[str, Concept],
+) -> None:
+    for chapter_index, chapter in enumerate(PHYSICS_SYLLABUS, start=1):
+        chapter_id = stable_id("syllabus", "physics", chapter.title)
+        _append_syllabus_node(
+            syllabus_nodes,
+            seen_node_ids,
+            SyllabusNode(
+                id=chapter_id,
+                title=chapter.title,
+                level="chapter",
+                parent_id=root_node.id,
+                order_index=chapter_index * 1000,
+                source_ref=root_source_ref,
+                version=graph_version,
+            ),
+        )
+        _merge_concept(
+            concepts,
+            concept_id=stable_id("concept", chapter.title),
+            canonical_name=chapter.title,
+            definition=f"JEE Physics chapter covering {chapter.title.lower()}.",
+            source_refs=(root_source_ref,),
+            aliases=(normalize_text(chapter.title), stable_slug(chapter.title).replace("-", " ")),
+            syllabus_node_id=chapter_id,
+            graph_version=graph_version,
+        )
+
+        for topic_index, topic in enumerate(chapter.topics, start=1):
+            topic_id = stable_id("syllabus", "physics", chapter.title, topic.title)
+            _append_syllabus_node(
+                syllabus_nodes,
+                seen_node_ids,
+                SyllabusNode(
+                    id=topic_id,
+                    title=topic.title,
+                    level="topic",
+                    parent_id=chapter_id,
+                    order_index=chapter_index * 1000 + topic_index * 10,
+                    source_ref=root_source_ref,
+                    version=graph_version,
+                ),
+            )
+            for concept_index, concept_name in enumerate(topic.concepts, start=1):
+                concept_node_id = stable_id(
+                    "syllabus",
+                    "physics",
+                    chapter.title,
+                    topic.title,
+                    concept_name,
+                )
+                _append_syllabus_node(
+                    syllabus_nodes,
+                    seen_node_ids,
+                    SyllabusNode(
+                        id=concept_node_id,
+                        title=concept_name,
+                        level="subconcept",
+                        parent_id=topic_id,
+                        order_index=chapter_index * 1000 + topic_index * 10 + concept_index,
+                        source_ref=root_source_ref,
+                        version=graph_version,
+                    ),
+                )
+                _merge_concept(
+                    concepts,
+                    concept_id=stable_id("concept", concept_name),
+                    canonical_name=concept_name,
+                    definition=(
+                        f"JEE Physics concept under {chapter.title} > {topic.title}."
+                    ),
+                    source_refs=(root_source_ref,),
+                    aliases=tuple(
+                        sorted(
+                            {
+                                normalize_text(concept_name),
+                                stable_slug(concept_name).replace("-", " "),
+                                normalize_text(topic.title),
+                                normalize_text(chapter.title),
+                            }
+                        )
+                    ),
+                    syllabus_node_id=concept_node_id,
+                    graph_version=graph_version,
+                )
+
+
 def _parse_question_records(markdown_path: Path) -> tuple[PhysicsQuestionRecord, ...]:
     text = markdown_path.read_text(encoding="utf-8")
     records: list[PhysicsQuestionRecord] = []
@@ -487,6 +632,17 @@ def build_physics_seed_bundle(
     misconceptions: dict[str, Misconception] = {}
     evidence_artifacts: dict[str, EvidenceArtifact] = {}
     assessment_items: dict[str, AssessmentItem] = {}
+    syllabus_nodes: list[SyllabusNode] = [root_node]
+    seen_syllabus_node_ids = {root_node.id}
+
+    _seed_canonical_syllabus(
+        root_node=root_node,
+        root_source_ref=root_source_ref,
+        graph_version=graph_version,
+        syllabus_nodes=syllabus_nodes,
+        seen_node_ids=seen_syllabus_node_ids,
+        concepts=concepts,
+    )
 
     for order_index, record in enumerate(corpus.question_records, start=1):
         base_topic, detail_topic = _split_topic(record.topic)
@@ -526,28 +682,26 @@ def build_physics_seed_bundle(
 
         concept = concepts.get(concept_id)
         if concept is None:
-            concepts[concept_id] = Concept(
-                id=concept_id,
+            _merge_concept(
+                concepts,
+                concept_id=concept_id,
                 canonical_name=topic_label,
                 definition=f"Physics topic extracted from {record.question_id}.",
-                subject="Physics",
-                grade_band="JEE",
                 source_refs=reference_refs + (evidence_id, root_source_ref),
                 aliases=_topic_aliases(topic_label, base_topic, detail_topic),
-                syllabus_node_ids=(topic_nodes[topic_label]["id"],),
-                version=graph_version,
+                syllabus_node_id=str(topic_nodes[topic_label]["id"]),
+                graph_version=graph_version,
             )
         else:
-            concepts[concept_id] = Concept(
-                id=concept.id,
+            _merge_concept(
+                concepts,
+                concept_id=concept_id,
                 canonical_name=concept.canonical_name,
                 definition=concept.definition,
-                subject=concept.subject,
-                grade_band=concept.grade_band,
-                source_refs=tuple(dict.fromkeys(concept.source_refs + reference_refs + (evidence_id, root_source_ref))),
-                aliases=tuple(sorted(set(concept.aliases) | set(_topic_aliases(topic_label, base_topic, detail_topic)))),
-                syllabus_node_ids=tuple(sorted(set(concept.syllabus_node_ids) | {topic_nodes[topic_label]["id"]})),
-                version=graph_version,
+                source_refs=reference_refs + (evidence_id, root_source_ref),
+                aliases=_topic_aliases(topic_label, base_topic, detail_topic),
+                syllabus_node_id=str(topic_nodes[topic_label]["id"]),
+                graph_version=graph_version,
             )
 
         skill = skills.get(skill_id)
@@ -621,8 +775,6 @@ def build_physics_seed_bundle(
                 version=graph_version,
             )
 
-    syllabus_nodes: list[SyllabusNode] = [root_node]
-
     concept_by_name = {
         concept.canonical_name: concept for concept in concepts.values()
     }
@@ -655,7 +807,9 @@ def build_physics_seed_bundle(
 
     for base_topic, meta in sorted(base_topics.items(), key=lambda item: (item[1]["order_index"], item[0].lower())):
         chapter_id = stable_id("syllabus", "physics", base_topic)
-        syllabus_nodes.append(
+        _append_syllabus_node(
+            syllabus_nodes,
+            seen_syllabus_node_ids,
             SyllabusNode(
                 id=chapter_id,
                 title=base_topic,
@@ -664,7 +818,7 @@ def build_physics_seed_bundle(
                 order_index=int(meta["order_index"]),
                 source_ref=str(meta["source_ref"]),
                 version=graph_version,
-            )
+            ),
         )
 
     topic_order: dict[str, int] = {}
@@ -680,7 +834,9 @@ def build_physics_seed_bundle(
         topic_label = record.topic.strip() or "Physics"
         topic_meta = topic_nodes[topic_label]
         topic_id = str(topic_meta["id"])
-        syllabus_nodes.append(
+        _append_syllabus_node(
+            syllabus_nodes,
+            seen_syllabus_node_ids,
             SyllabusNode(
                 id=topic_id,
                 title=str(topic_meta["title"]),
@@ -689,7 +845,7 @@ def build_physics_seed_bundle(
                 order_index=topic_order[topic_label],
                 source_ref=str(topic_meta["source_ref"]),
                 version=graph_version,
-            )
+            ),
         )
 
     created_at = datetime.now(tz=timezone.utc).isoformat()

@@ -68,5 +68,9 @@ class PhysicsCorpusTests(TestCase):
             seed_bundle = build_physics_seed_bundle(source.parent)
 
         self.assertEqual(len(seed_bundle.assessment_items), 1)
-        self.assertEqual(seed_bundle.concepts[0].canonical_name, "Rotational Mechanics")
+        concept_names = {concept.canonical_name for concept in seed_bundle.concepts}
+        syllabus_levels = {node.level for node in seed_bundle.syllabus_nodes}
+        self.assertIn("Rotational Mechanics", concept_names)
+        self.assertIn("moment of inertia", concept_names)
+        self.assertIn("subconcept", syllabus_levels)
 
