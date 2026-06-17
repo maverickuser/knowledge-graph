@@ -137,6 +137,30 @@ def validate_graph_snapshot(snapshot: GraphSnapshot) -> ValidationReport:
         if not misconception.source_refs:
             issues.append(ValidationIssue("missing_provenance", "misconception must have provenance", misconception.id))
 
+    misconception_index = _indexed(snapshot.misconceptions)
+    for action in snapshot.corrective_actions:
+        if action.misconception_id not in misconception_index:
+            issues.append(
+                ValidationIssue(
+                    "missing_misconception",
+                    "corrective action must reference a known misconception",
+                    action.id,
+                )
+            )
+        if not action.guidance.strip():
+            issues.append(ValidationIssue("missing_guidance", "corrective action guidance is required", action.id))
+        if not action.source_refs:
+            issues.append(ValidationIssue("missing_provenance", "corrective action must have provenance", action.id))
+        for target_id in action.mapped_to_ids:
+            if target_id not in node_index:
+                issues.append(
+                    ValidationIssue(
+                        "missing_mapping_target",
+                        "corrective action target was not found",
+                        action.id,
+                    )
+                )
+
     for assessment in snapshot.assessment_items:
         for evidence_ref in assessment.visual_evidence_refs:
             evidence = evidence_index.get(evidence_ref)

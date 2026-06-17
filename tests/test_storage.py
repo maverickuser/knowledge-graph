@@ -81,7 +81,8 @@ class StorageTests(TestCase):
             item for item in table.items if item["artifact_type"] == "GraphSnapshotMetadata"
         )
         self.assertLess(len(snapshot_item["payload"].encode("utf-8")), 400 * 1024)
-        self.assertEqual(len(s3.objects), 1)
+        self.assertEqual(len(s3.objects), 2)
+        self.assertIn("agent_view_s3_key", snapshot_item["payload"])
         with patch.object(repository, "_query_single", return_value=snapshot_item):
             loaded = repository.load_snapshot(snapshot.graph_version)
         self.assertEqual(loaded, snapshot)

@@ -26,6 +26,7 @@ def build_graph(seed_bundle: GraphSeedBundle) -> GraphSnapshot:
         skills=seed_bundle.skills,
         prerequisite_edges=seed_bundle.prerequisite_edges,
         misconceptions=seed_bundle.misconceptions,
+        corrective_actions=seed_bundle.corrective_actions,
         evidence_artifacts=seed_bundle.evidence_artifacts,
         assessment_items=seed_bundle.assessment_items,
         built_at=datetime.now(tz=timezone.utc).isoformat(),

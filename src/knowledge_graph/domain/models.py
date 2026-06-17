@@ -117,6 +117,20 @@ class Misconception(SerializableArtifact):
 
 @register_artifact
 @dataclass(frozen=True, slots=True)
+class CorrectiveAction(SerializableArtifact):
+    id: str
+    misconception_id: str
+    title: str
+    action_type: str
+    guidance: str
+    practice_prompt: str
+    source_refs: tuple[str, ...]
+    mapped_to_ids: tuple[str, ...]
+    version: str = "1"
+
+
+@register_artifact
+@dataclass(frozen=True, slots=True)
 class EvidenceArtifact(SerializableArtifact):
     id: str
     artifact_type: str
@@ -232,6 +246,7 @@ class GraphSeedBundle(SerializableArtifact):
     assessment_items: tuple[AssessmentItem, ...]
     created_at: str
     version: str
+    corrective_actions: tuple[CorrectiveAction, ...] = ()
 
 
 @register_artifact
@@ -249,6 +264,7 @@ class GraphSnapshot(SerializableArtifact):
     misconceptions: tuple[Misconception, ...]
     evidence_artifacts: tuple[EvidenceArtifact, ...]
     assessment_items: tuple[AssessmentItem, ...]
+    corrective_actions: tuple[CorrectiveAction, ...] = ()
     communities: tuple[Community, ...] = ()
     community_summaries: tuple[CommunitySummary, ...] = ()
     diagnostic_records: tuple[DiagnosticRecord, ...] = ()

@@ -9,6 +9,7 @@ from typing import Any
 
 from ..domain.models import CommunitySummary, DiagnosticRecord, GraphSnapshot
 from ..exceptions import StorageBackendUnavailable
+from ..output.agent_view import build_agent_graph_view
 from .repository import KnowledgeGraphRepository
 
 
@@ -100,6 +101,9 @@ class DynamoDBKnowledgeGraphRepository(KnowledgeGraphRepository):
     def _snapshot_key(self, snapshot: GraphSnapshot) -> str:
         return f"snapshots/{snapshot.graph_version}/{snapshot.id}.json"
 
+    def _agent_view_key(self, snapshot: GraphSnapshot) -> str:
+        return f"snapshots/{snapshot.graph_version}/{snapshot.id}.agent-view.json"
+
     def _snapshot_counts(self, snapshot: GraphSnapshot) -> dict[str, int]:
         return {
             "source_documents": len(snapshot.source_documents),
@@ -109,6 +113,7 @@ class DynamoDBKnowledgeGraphRepository(KnowledgeGraphRepository):
             "skills": len(snapshot.skills),
             "prerequisite_edges": len(snapshot.prerequisite_edges),
             "misconceptions": len(snapshot.misconceptions),
+            "corrective_actions": len(snapshot.corrective_actions),
             "evidence_artifacts": len(snapshot.evidence_artifacts),
             "assessment_items": len(snapshot.assessment_items),
             "communities": len(snapshot.communities),
@@ -117,7 +122,7 @@ class DynamoDBKnowledgeGraphRepository(KnowledgeGraphRepository):
         }
 
     def _snapshot_metadata(
-        self, snapshot: GraphSnapshot, key: str, payload: str
+        self, snapshot: GraphSnapshot, key: str, payload: str, agent_view_key: str
     ) -> dict[str, Any]:
         body = payload.encode("utf-8")
         return {
@@ -128,6 +133,7 @@ class DynamoDBKnowledgeGraphRepository(KnowledgeGraphRepository):
             "built_at": snapshot.built_at,
             "s3_bucket": self._snapshot_bucket(),
             "s3_key": key,
+            "agent_view_s3_key": agent_view_key,
             "sha256": sha256(body).hexdigest(),
             "byte_size": len(body),
             "counts": self._snapshot_counts(snapshot),
@@ -141,7 +147,9 @@ class DynamoDBKnowledgeGraphRepository(KnowledgeGraphRepository):
     def save_snapshot(self, snapshot: GraphSnapshot) -> None:
         payload = json.dumps(snapshot.to_dict(), sort_keys=True)
         key = self._snapshot_key(snapshot)
-        metadata = self._snapshot_metadata(snapshot, key, payload)
+        agent_view_key = self._agent_view_key(snapshot)
+        agent_view_payload = json.dumps(build_agent_graph_view(snapshot), sort_keys=True)
+        metadata = self._snapshot_metadata(snapshot, key, payload, agent_view_key)
         if self._s3_client is None:
             raise StorageBackendUnavailable(
                 "S3 client is required to persist graph snapshots"
@@ -155,6 +163,17 @@ class DynamoDBKnowledgeGraphRepository(KnowledgeGraphRepository):
                 "graph-version": snapshot.graph_version,
                 "snapshot-id": snapshot.id,
                 "sha256": metadata["sha256"],
+            },
+        )
+        self._s3_client.put_object(
+            Bucket=metadata["s3_bucket"],
+            Key=metadata["agent_view_s3_key"],
+            Body=agent_view_payload.encode("utf-8"),
+            ContentType="application/json",
+            Metadata={
+                "graph-version": snapshot.graph_version,
+                "snapshot-id": snapshot.id,
+                "view": "agent",
             },
         )
         self._put(

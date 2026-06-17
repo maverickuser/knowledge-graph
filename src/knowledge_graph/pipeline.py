@@ -72,6 +72,7 @@ def build_physics_graph(
             "skills": len(snapshot.skills),
             "prerequisite_edges": len(snapshot.prerequisite_edges),
             "misconceptions": len(snapshot.misconceptions),
+            "corrective_actions": len(snapshot.corrective_actions),
             "evidence_artifacts": len(snapshot.evidence_artifacts),
             "communities": len(snapshot.communities),
             "community_summaries": len(snapshot.community_summaries),

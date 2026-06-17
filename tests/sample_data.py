@@ -12,6 +12,7 @@ from knowledge_graph.domain.ids import stable_id
 from knowledge_graph.domain.models import (
     AssessmentItem,
     Concept,
+    CorrectiveAction,
     EvidenceArtifact,
     GraphSeedBundle,
     GraphSnapshot,
@@ -106,6 +107,17 @@ def build_sample_seed_bundle() -> GraphSeedBundle:
         mapped_to_ids=(factor_quadratics.id,),
         version="1",
     )
+    corrective_action = CorrectiveAction(
+        id=stable_id("corrective-action", "sign-error"),
+        misconception_id=misconception.id,
+        title="Correct sign errors during factoring",
+        action_type="targeted_remediation",
+        guidance="Expand the proposed factors and compare every sign with the original quadratic.",
+        practice_prompt="Factor a similar quadratic and annotate the sign check after expansion.",
+        source_refs=("evidence-misconception-1",),
+        mapped_to_ids=(factor_quadratics.id,),
+        version="1",
+    )
 
     evidence_artifacts = (
         EvidenceArtifact(
@@ -176,6 +188,7 @@ def build_sample_seed_bundle() -> GraphSeedBundle:
         skills=(expand_skill,),
         prerequisite_edges=(prereq_edge,),
         misconceptions=(misconception,),
+        corrective_actions=(corrective_action,),
         evidence_artifacts=evidence_artifacts,
         assessment_items=(assessment_item,),
         created_at=datetime.now(tz=timezone.utc).isoformat(),

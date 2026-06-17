@@ -65,10 +65,16 @@ misconceptions.
 
 The graph builder seeds canonical JEE Physics coverage before adding
 question-derived links, so the persisted snapshot includes the hierarchy
-`Physics -> chapter -> topic -> subconcept/concept` across the syllabus. The
-DynamoDB row intentionally stores compact metadata and an S3 pointer; the full
-normalized graph JSON is stored in S3 and uses IDs for edges, with labels
-resolved through `syllabus_nodes`, `concepts`, `skills`, and `misconceptions`.
+`Physics -> chapter -> topic -> concept -> subconcept -> microconcept`.
+Syllabus and reference books are treated as primary sources for the learning
+hierarchy. PYQ prompts and worked solutions are used for assessment items,
+misconception signals, and corrective actions.
+
+The DynamoDB row intentionally stores compact metadata and S3 pointers. The
+full normalized graph JSON is stored in S3, and a denormalized agent-view JSON
+is written next to it for label-rich traversal. The normalized graph uses IDs
+for edges; the agent view resolves those IDs into labels, syllabus paths,
+misconception mappings, and corrective actions.
 
 For structured PYQ corpora, the build also renders each question region from
 its source PDF into `data/work/visual/<graph-version>/`. These crops preserve

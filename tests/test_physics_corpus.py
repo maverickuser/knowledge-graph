@@ -73,4 +73,6 @@ class PhysicsCorpusTests(TestCase):
         self.assertIn("Rotational Mechanics", concept_names)
         self.assertIn("moment of inertia", concept_names)
         self.assertIn("subconcept", syllabus_levels)
+        self.assertIn("microconcept", syllabus_levels)
+        self.assertEqual(len(seed_bundle.corrective_actions), 1)
 

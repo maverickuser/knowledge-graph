@@ -12,6 +12,7 @@ from ..domain.ids import normalize_text, stable_id, stable_slug
 from ..domain.models import (
     AssessmentItem,
     Concept,
+    CorrectiveAction,
     EvidenceArtifact,
     GraphSeedBundle,
     Misconception,
@@ -374,15 +375,60 @@ def _seed_canonical_syllabus(
                     topic.title,
                     concept_name,
                 )
+                subconcept_title = f"{concept_name} fundamentals"
+                subconcept_node_id = stable_id(
+                    "syllabus",
+                    "physics",
+                    chapter.title,
+                    topic.title,
+                    concept_name,
+                    subconcept_title,
+                )
+                microconcept_title = f"{concept_name} problem application"
+                microconcept_node_id = stable_id(
+                    "syllabus",
+                    "physics",
+                    chapter.title,
+                    topic.title,
+                    concept_name,
+                    subconcept_title,
+                    microconcept_title,
+                )
                 _append_syllabus_node(
                     syllabus_nodes,
                     seen_node_ids,
                     SyllabusNode(
                         id=concept_node_id,
                         title=concept_name,
-                        level="subconcept",
+                        level="concept",
                         parent_id=topic_id,
-                        order_index=chapter_index * 1000 + topic_index * 10 + concept_index,
+                        order_index=chapter_index * 1000 + topic_index * 100 + concept_index * 10,
+                        source_ref=root_source_ref,
+                        version=graph_version,
+                    ),
+                )
+                _append_syllabus_node(
+                    syllabus_nodes,
+                    seen_node_ids,
+                    SyllabusNode(
+                        id=subconcept_node_id,
+                        title=subconcept_title,
+                        level="subconcept",
+                        parent_id=concept_node_id,
+                        order_index=chapter_index * 1000 + topic_index * 100 + concept_index * 10 + 1,
+                        source_ref=root_source_ref,
+                        version=graph_version,
+                    ),
+                )
+                _append_syllabus_node(
+                    syllabus_nodes,
+                    seen_node_ids,
+                    SyllabusNode(
+                        id=microconcept_node_id,
+                        title=microconcept_title,
+                        level="microconcept",
+                        parent_id=subconcept_node_id,
+                        order_index=chapter_index * 1000 + topic_index * 100 + concept_index * 10 + 2,
                         source_ref=root_source_ref,
                         version=graph_version,
                     ),
@@ -406,6 +452,28 @@ def _seed_canonical_syllabus(
                         )
                     ),
                     syllabus_node_id=concept_node_id,
+                    graph_version=graph_version,
+                )
+                _merge_concept(
+                    concepts,
+                    concept_id=stable_id("concept", microconcept_title),
+                    canonical_name=microconcept_title,
+                    definition=(
+                        f"Problem-solving micro concept for applying {concept_name} "
+                        f"within {chapter.title} > {topic.title}."
+                    ),
+                    source_refs=(root_source_ref,),
+                    aliases=tuple(
+                        sorted(
+                            {
+                                normalize_text(microconcept_title),
+                                normalize_text(concept_name),
+                                normalize_text(topic.title),
+                                normalize_text(chapter.title),
+                            }
+                        )
+                    ),
+                    syllabus_node_id=microconcept_node_id,
                     graph_version=graph_version,
                 )
 
@@ -630,6 +698,7 @@ def build_physics_seed_bundle(
     skills: dict[str, Skill] = {}
     prerequisite_edges: dict[str, PrerequisiteEdge] = {}
     misconceptions: dict[str, Misconception] = {}
+    corrective_actions: dict[str, CorrectiveAction] = {}
     evidence_artifacts: dict[str, EvidenceArtifact] = {}
     assessment_items: dict[str, AssessmentItem] = {}
     syllabus_nodes: list[SyllabusNode] = [root_node]
@@ -774,6 +843,25 @@ def build_physics_seed_bundle(
                 mapped_to_ids=mapped_to_ids,
                 version=graph_version,
             )
+            action_id = stable_id("corrective-action", misconception_id)
+            corrective_actions[action_id] = CorrectiveAction(
+                id=action_id,
+                misconception_id=misconception_id,
+                title=f"Correct {pitfall[:80].strip()}",
+                action_type="targeted_remediation",
+                guidance=(
+                    f"Use the worked solution for {topic_label} to isolate the error: "
+                    f"{pitfall}. Re-solve the step, explicitly naming the governing "
+                    "concept and checking units, signs, and limiting cases."
+                ),
+                practice_prompt=(
+                    f"Create one similar {topic_label} question, solve it step by step, "
+                    "and mark the step where this mistake would usually occur."
+                ),
+                source_refs=(evidence_id, root_source_ref),
+                mapped_to_ids=mapped_to_ids,
+                version=graph_version,
+            )
 
     concept_by_name = {
         concept.canonical_name: concept for concept in concepts.values()
@@ -875,6 +963,7 @@ def build_physics_seed_bundle(
         skills=tuple(sorted(skills.values(), key=lambda item: (item.canonical_name.lower(), item.id))),
         prerequisite_edges=tuple(sorted(prerequisite_edges.values(), key=lambda item: (item.from_id, item.to_id, item.id))),
         misconceptions=tuple(sorted(misconceptions.values(), key=lambda item: (item.label.lower(), item.id))),
+        corrective_actions=tuple(sorted(corrective_actions.values(), key=lambda item: (item.title.lower(), item.id))),
         evidence_artifacts=tuple(
             sorted(
                 tuple(evidence_artifacts.values())

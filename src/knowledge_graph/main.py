@@ -183,6 +183,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "concepts": len(snapshot.concepts),
                 "skills": len(snapshot.skills),
                 "misconceptions": len(snapshot.misconceptions),
+                "corrective_actions": len(snapshot.corrective_actions),
                 "communities": len(snapshot.communities),
                 "community_summaries": len(snapshot.community_summaries),
             },
