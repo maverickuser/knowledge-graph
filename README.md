@@ -76,6 +76,13 @@ is written next to it for label-rich traversal. The normalized graph uses IDs
 for edges; the agent view resolves those IDs into labels, syllabus paths,
 misconception mappings, and corrective actions.
 
+For anti-hallucination, agents should first run deterministic syllabus
+grounding. A question is mapped only when it contains a known graph term from a
+chapter, topic, concept, subconcept, microconcept, or concept alias. Any
+LLM-proposed syllabus path must pass `verify_syllabus_path` before the agent
+uses it. If no known term matches, the agent should abstain or ask for
+clarification instead of inventing a chapter or concept.
+
 For structured PYQ corpora, the build also renders each question region from
 its source PDF into `data/work/visual/<graph-version>/`. These crops preserve
 diagrams, graphs, circuits, equations, and visual answer options. Every crop is

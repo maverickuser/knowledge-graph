@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import Any
 
 from ..domain.models import GraphSnapshot
+from ..grounding.syllabus import build_syllabus_term_index
 
 
 def _label_by_id(snapshot: GraphSnapshot) -> dict[str, str]:
@@ -82,6 +83,12 @@ def build_agent_graph_view(snapshot: GraphSnapshot) -> dict[str, Any]:
     return {
         "graph_version": snapshot.graph_version,
         "snapshot_id": snapshot.id,
+        "grounding_policy": {
+            "question_mapping": "exact_known_term_match_only",
+            "unsupported_behavior": "abstain_or_ask_for_clarification",
+            "verified_levels": ["chapter", "topic", "concept", "subconcept", "microconcept"],
+        },
+        "syllabus_term_index": build_syllabus_term_index(snapshot),
         "hierarchy": _hierarchy(snapshot),
         "concepts": [
             {

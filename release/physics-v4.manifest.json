@@ -21,6 +21,11 @@
   },
   "extraction_version": "physics-extract-v4",
   "graph_specification": {
+    "anti_hallucination": {
+      "question_mapping": "exact known chapter/topic/concept/subconcept/microconcept term match only",
+      "unsupported_behavior": "abstain or ask for clarification when no known syllabus term is matched",
+      "verification": "LLM syllabus paths must pass verify_syllabus_path before use"
+    },
     "graphrag_alignment": [
       "entity_relationship_graph",
       "hierarchical_communities",
